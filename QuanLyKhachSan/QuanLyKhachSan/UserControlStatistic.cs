@@ -18,188 +18,140 @@ namespace QuanLyKhachSan
         {
             InitializeComponent();
         }
-        private string roomUrl = "http://127.0.0.1:3000/rooms";
-        private string bookingsUrl = "http://127.0.0.1:3000/bookings";
-        private async Task LoadAllRoomsAsync(DateTime checkin, DateTime checkout)
+        private async Task<List<BillTransaction>> getData()
         {
             try
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    var roomResponse = await client.GetAsync(roomUrl);
-                    var bookingsResponse = await client.GetAsync(bookingsUrl);
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:3000/billtransactions");
 
-                    if (roomResponse.IsSuccessStatusCode && bookingsResponse.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode)
                     {
-                        string jsonRoomResponse = await roomResponse.Content.ReadAsStringAsync();
-                        string jsonBookingResponse = await bookingsResponse.Content.ReadAsStringAsync();
-
-                        List<Room> roomList = JsonConvert.DeserializeObject<List<Room>>(jsonRoomResponse);
-                        List<RoomBooking> bookingList = JsonConvert.DeserializeObject<List<RoomBooking>>(jsonBookingResponse);
-
-                        // Clear existing rows in the DataGridView
-                        dgvStatistic.Rows.Clear();
-
-                        double sumAmount = 0;
-
-                        // Add new room data to DataGridView
-                        foreach (var booking in bookingList)
-                        {
-                            if (booking.checkin > checkin && booking.checkin < checkout)
-                            {
-                                var matchingRoom = roomList.FirstOrDefault(room => room.roomNumber == booking.roomNumber);
-                                if (matchingRoom != null)
-                                {
-                                    int index = dgvStatistic.Rows.Add();
-                                    dgvStatistic.Rows[index].Cells[0].Value = booking.roomNumber;
-                                    string styleString = "";
-                                    switch (booking.style)
-                                    {
-                                        case 0:
-                                            styleString = "Standard";
-                                            break;
-                                        case 1:
-                                            styleString = "Deluxe";
-                                            break;
-                                        case 2:
-                                            styleString = "Family";
-                                            break;
-                                        case 3:
-                                            styleString = "Business";
-                                            break;
-                                        default:
-                                            styleString = "Unknown";
-                                            break;
-                                    }
-                                    dgvStatistic.Rows[index].Cells[1].Value = styleString;
-                                    dgvStatistic.Rows[index].Cells[2].Value = matchingRoom.bookingPrice;
-                                    dgvStatistic.Rows[index].Cells[3].Value = booking.startDate.ToString("dd/MM/yyyy");
-                                    dgvStatistic.Rows[index].Cells[5].Value = booking.phoneNumber;
-
-                                    var isSmokingCell = new DataGridViewCheckBoxCell();
-                                    isSmokingCell.Value = matchingRoom.isSmoking;
-                                    dgvStatistic.Rows[index].Cells[4] = isSmokingCell;
-                                    sumAmount += matchingRoom.bookingPrice;
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Not found");
-                                }
-                            }
-                        }
-
-                        lblAmount.Text = sumAmount.ToString();
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        List<BillTransaction> billTransactionList = JsonConvert.DeserializeObject<List<BillTransaction>>(jsonResponse);
+                        return billTransactionList;
                     }
                     else
                     {
-                        MessageBox.Show($"Error loading data. Status Code: {roomResponse.StatusCode}");
+                        MessageBox.Show($"Failed to retrieve room data. Status code: {response.StatusCode}");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            return null;
         }
-        private async Task LoadAllRoomsAsync(int month)
+
+        private async void btnStatistic_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    var roomResponse = await client.GetAsync(roomUrl);
-                    var bookingsResponse = await client.GetAsync(bookingsUrl);
-
-                    if (roomResponse.IsSuccessStatusCode && bookingsResponse.IsSuccessStatusCode)
-                    {
-                        string jsonRoomResponse = await roomResponse.Content.ReadAsStringAsync();
-                        string jsonBookingResponse = await bookingsResponse.Content.ReadAsStringAsync();
-
-                        List<Room> roomList = JsonConvert.DeserializeObject<List<Room>>(jsonRoomResponse);
-                        List<RoomBooking> bookingList = JsonConvert.DeserializeObject<List<RoomBooking>>(jsonBookingResponse);
-
-                        // Clear existing rows in the DataGridView
-                        dgvStatistic.Rows.Clear();
-
-                        double sumAmount = 0;
-
-                        // Add new room data to DataGridView
-                        foreach (var booking in bookingList)
-                        {
-                            if (booking.checkin.Month == month)
-                            {
-                                var matchingRoom = roomList.FirstOrDefault(room => room.roomNumber == booking.roomNumber);
-                                if (matchingRoom != null)
-                                {
-                                    int index = dgvStatistic.Rows.Add();
-                                    dgvStatistic.Rows[index].Cells[0].Value = booking.roomNumber;
-                                    string styleString = "";
-                                    switch (booking.style)
-                                    {
-                                        case 0:
-                                            styleString = "Standard";
-                                            break;
-                                        case 1:
-                                            styleString = "Deluxe";
-                                            break;
-                                        case 2:
-                                            styleString = "Family";
-                                            break;
-                                        case 3:
-                                            styleString = "Business";
-                                            break;
-                                        default:
-                                            styleString = "Unknown";
-                                            break;
-                                    }
-                                    dgvStatistic.Rows[index].Cells[1].Value = styleString;
-                                    dgvStatistic.Rows[index].Cells[2].Value = matchingRoom.bookingPrice;
-                                    dgvStatistic.Rows[index].Cells[3].Value = booking.startDate.ToString("dd/MM/yyyy");
-                                    dgvStatistic.Rows[index].Cells[5].Value = booking.phoneNumber;
-
-                                    var isSmokingCell = new DataGridViewCheckBoxCell();
-                                    isSmokingCell.Value = matchingRoom.isSmoking;
-                                    dgvStatistic.Rows[index].Cells[4] = isSmokingCell;
-                                    sumAmount += matchingRoom.bookingPrice;
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Not found");
-                                }
-                            }
-                        }
-
-                        lblAmount.Text = sumAmount.ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Error loading data. Status Code: {roomResponse.StatusCode}");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
-        }
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            if(dtpIn.Value <= dtpOut.Value)
-            {
-                await LoadAllRoomsAsync(dtpIn.Value, dtpOut.Value);
-            }
-            else
+            chartStatistics.Titles.Clear();
+            if (dtpIn.Value > dtpOut.Value)
             {
                 MessageBox.Show("The value of the room date must be smaller than the room date");
                 return;
             }
+
+            DateTime startDate = dtpIn.Value;
+            DateTime endDate = dtpOut.Value;
+            List<BillTransaction> list = await getData();
+            Dictionary<DateTime, double> roomPrices = new Dictionary<DateTime, double>();
+            double sum = 0;
+
+            foreach (BillTransaction transaction in list)
+            {
+                if (transaction.creationDate >= startDate && transaction.creationDate <= endDate)
+                {
+                    if (roomPrices.ContainsKey(transaction.creationDate))
+                    {
+                        roomPrices[transaction.creationDate] += transaction.amount;
+                    }
+                    else
+                    {
+                        roomPrices[transaction.creationDate] = transaction.amount;
+                    }
+                    sum += transaction.amount;
+                }
+            }
+            lblAmount.Text = sum.ToString();
+            // Clear existing data in the chart
+            chartStatistics.Series["RoomPrices"].Points.Clear();
+
+            // Sort the dictionary by date
+            var sortedRoomPrices = roomPrices.OrderBy(entry => entry.Key);
+
+            // Add data to the chart
+            foreach (var entry in sortedRoomPrices)
+            {
+                chartStatistics.Series["RoomPrices"].Points.AddXY(entry.Key.ToString("dd-MM"), entry.Value);
+            }
+            chartStatistics.ChartAreas[0].AxisX.Interval = 1;
+            chartStatistics.Titles.Add("Total Room Rental Prices by Day");
+            chartStatistics.ChartAreas[0].AxisX.Title = "Date";
+            chartStatistics.ChartAreas[0].AxisY.Title = "Price";
+            chartStatistics.Series["RoomPrices"].IsValueShownAsLabel = true;
         }
 
         private async void ckbStatisticsForMonth_CheckedChanged(object sender, EventArgs e)
         {
-            if(ckbStatisticsForMonth.Checked == true)
-                await LoadAllRoomsAsync(DateTime.Now.Month);
-            else dgvStatistic.Rows.Clear();
+            chartStatistics.Titles.Clear();
+            lblAmount.Text = "";
+            if (ckbStatisticsForMonth.Checked)
+            {
+                List<BillTransaction> list = await getData();
+                Dictionary<DateTime, double> roomPrices = new Dictionary<DateTime, double>();
+                double sum = 0;
+                chartStatistics.Series["RoomPrices"].Points.Clear();
+                foreach (BillTransaction transaction in list)
+                {
+                    if (transaction.creationDate.Month == DateTime.Now.Month)
+                    {
+                        // If the transaction date is within the selected date range, add it to the dictionary
+                        if (roomPrices.ContainsKey(transaction.creationDate))
+                        {
+                            // If there's already an entry for this date, add the transaction amount to the existing amount
+                            roomPrices[transaction.creationDate] += transaction.amount;
+                        }
+                        else
+                        {
+                            // If there's no entry for this date, create a new entry with the transaction amount
+                            roomPrices[transaction.creationDate] = transaction.amount;
+                        }
+                        sum += transaction.amount;
+                    }
+                }
+                // Filter data within the selected date range
+                var sortedRoomPrices = roomPrices.OrderBy(entry => entry.Key);
+                lblAmount.Text = sum.ToString();
+                chartStatistics.Series["RoomPrices"].Points.Clear(); // Clear existing data
+                foreach (var entry in roomPrices)
+                {
+                    chartStatistics.Series["RoomPrices"].Points.AddXY(entry.Key.ToString("dd-MM"), entry.Value);
+                }
+                chartStatistics.ChartAreas[0].AxisX.Interval = 1;
+                chartStatistics.Titles.Add("Total Room Rental Prices by Day");
+                chartStatistics.ChartAreas[0].AxisX.Title = "Date";
+                chartStatistics.ChartAreas[0].AxisY.Title = "Price";
+                chartStatistics.Series["RoomPrices"].IsValueShownAsLabel = true;
+            }
+            else
+            {
+                chartStatistics.Series["RoomPrices"].Points.Clear();
+                return;
+            }
+            
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

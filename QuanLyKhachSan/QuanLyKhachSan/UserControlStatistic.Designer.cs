@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvStatistic = new System.Windows.Forms.DataGridView();
-            this.dgvRoomNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dvRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvIsSmoking = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgvPhoneNumberUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpOut = new System.Windows.Forms.DateTimePicker();
@@ -45,73 +41,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnStatistic = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStatistic)).BeginInit();
+            this.chartStatistics = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvStatistic
-            // 
-            this.dgvStatistic.AllowUserToAddRows = false;
-            this.dgvStatistic.AllowUserToDeleteRows = false;
-            this.dgvStatistic.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStatistic.BackgroundColor = System.Drawing.Color.White;
-            this.dgvStatistic.ColumnHeadersHeight = 29;
-            this.dgvStatistic.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvRoomNum,
-            this.dvRoomType,
-            this.dgvAmount,
-            this.dgvStartDate,
-            this.dgvIsSmoking,
-            this.dgvPhoneNumberUser});
-            this.dgvStatistic.Location = new System.Drawing.Point(0, 114);
-            this.dgvStatistic.Name = "dgvStatistic";
-            this.dgvStatistic.ReadOnly = true;
-            this.dgvStatistic.RowHeadersWidth = 51;
-            this.dgvStatistic.RowTemplate.Height = 24;
-            this.dgvStatistic.Size = new System.Drawing.Size(1102, 348);
-            this.dgvStatistic.TabIndex = 7;
-            // 
-            // dgvRoomNum
-            // 
-            this.dgvRoomNum.HeaderText = "Room Num";
-            this.dgvRoomNum.MinimumWidth = 6;
-            this.dgvRoomNum.Name = "dgvRoomNum";
-            this.dgvRoomNum.ReadOnly = true;
-            // 
-            // dvRoomType
-            // 
-            this.dvRoomType.HeaderText = "Room Type";
-            this.dvRoomType.MinimumWidth = 6;
-            this.dvRoomType.Name = "dvRoomType";
-            this.dvRoomType.ReadOnly = true;
-            // 
-            // dgvAmount
-            // 
-            this.dgvAmount.HeaderText = "Amount";
-            this.dgvAmount.MinimumWidth = 6;
-            this.dgvAmount.Name = "dgvAmount";
-            this.dgvAmount.ReadOnly = true;
-            // 
-            // dgvStartDate
-            // 
-            this.dgvStartDate.HeaderText = "Start Date";
-            this.dgvStartDate.MinimumWidth = 8;
-            this.dgvStartDate.Name = "dgvStartDate";
-            this.dgvStartDate.ReadOnly = true;
-            // 
-            // dgvIsSmoking
-            // 
-            this.dgvIsSmoking.HeaderText = "isSmoking";
-            this.dgvIsSmoking.MinimumWidth = 8;
-            this.dgvIsSmoking.Name = "dgvIsSmoking";
-            this.dgvIsSmoking.ReadOnly = true;
-            // 
-            // dgvPhoneNumberUser
-            // 
-            this.dgvPhoneNumberUser.HeaderText = "PhoneNumberUser";
-            this.dgvPhoneNumberUser.MinimumWidth = 8;
-            this.dgvPhoneNumberUser.Name = "dgvPhoneNumberUser";
-            this.dgvPhoneNumberUser.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -137,7 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpOut.Location = new System.Drawing.Point(502, 71);
             this.dtpOut.Name = "dtpOut";
-            this.dtpOut.Size = new System.Drawing.Size(263, 28);
+            this.dtpOut.Size = new System.Drawing.Size(254, 33);
             this.dtpOut.TabIndex = 11;
             // 
             // dtpIn
@@ -147,7 +80,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpIn.Location = new System.Drawing.Point(129, 71);
             this.dtpIn.Name = "dtpIn";
-            this.dtpIn.Size = new System.Drawing.Size(263, 28);
+            this.dtpIn.Size = new System.Drawing.Size(262, 33);
             this.dtpIn.TabIndex = 10;
             // 
             // ckbStatisticsForMonth
@@ -157,10 +90,11 @@
             this.ckbStatisticsForMonth.ForeColor = System.Drawing.Color.White;
             this.ckbStatisticsForMonth.Location = new System.Drawing.Point(6, 39);
             this.ckbStatisticsForMonth.Name = "ckbStatisticsForMonth";
-            this.ckbStatisticsForMonth.Size = new System.Drawing.Size(384, 29);
+            this.ckbStatisticsForMonth.Size = new System.Drawing.Size(463, 33);
             this.ckbStatisticsForMonth.TabIndex = 9;
             this.ckbStatisticsForMonth.Text = "Room statistics for the current month";
             this.ckbStatisticsForMonth.UseVisualStyleBackColor = true;
+            this.ckbStatisticsForMonth.CheckedChanged += new System.EventHandler(this.ckbStatisticsForMonth_CheckedChanged);
             // 
             // label4
             // 
@@ -169,7 +103,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(397, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 25);
+            this.label4.Size = new System.Drawing.Size(117, 29);
             this.label4.TabIndex = 6;
             this.label4.Text = "To date :";
             // 
@@ -178,22 +112,24 @@
             this.lblAmount.AutoSize = true;
             this.lblAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAmount.ForeColor = System.Drawing.Color.White;
-            this.lblAmount.Location = new System.Drawing.Point(1038, 77);
+            this.lblAmount.Location = new System.Drawing.Point(1017, 76);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(30, 25);
+            this.lblAmount.Size = new System.Drawing.Size(34, 29);
             this.lblAmount.TabIndex = 13;
             this.lblAmount.Text = "...";
+            this.lblAmount.Click += new System.EventHandler(this.lblAmount_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(887, 77);
+            this.label7.Location = new System.Drawing.Point(870, 74);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 25);
+            this.label7.Size = new System.Drawing.Size(181, 29);
             this.label7.TabIndex = 7;
             this.label7.Text = "Total Amount :";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -202,7 +138,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(1, 74);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(122, 25);
+            this.label8.Size = new System.Drawing.Size(146, 29);
             this.label8.TabIndex = 8;
             this.label8.Text = "From date :";
             // 
@@ -213,35 +149,49 @@
             this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistic.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistic.ForeColor = System.Drawing.Color.White;
-            this.btnStatistic.Location = new System.Drawing.Point(779, 56);
+            this.btnStatistic.Location = new System.Drawing.Point(762, 56);
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.Size = new System.Drawing.Size(102, 49);
             this.btnStatistic.TabIndex = 12;
             this.btnStatistic.Text = "Statistic";
             this.btnStatistic.UseVisualStyleBackColor = false;
-            this.btnStatistic.Click += new System.EventHandler(this.button1_Click);
+            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
+            // 
+            // chartStatistics
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chartStatistics.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartStatistics.Legends.Add(legend4);
+            this.chartStatistics.Location = new System.Drawing.Point(0, 106);
+            this.chartStatistics.Name = "chartStatistics";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "RoomPrices";
+            this.chartStatistics.Series.Add(series4);
+            this.chartStatistics.Size = new System.Drawing.Size(1102, 356);
+            this.chartStatistics.TabIndex = 9;
+            this.chartStatistics.Text = "chart1";
             // 
             // UserControlStatistic
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(198)))), ((int)(((byte)(218)))));
-            this.Controls.Add(this.dgvStatistic);
+            this.Controls.Add(this.chartStatistics);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserControlStatistic";
             this.Size = new System.Drawing.Size(1102, 462);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStatistic)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvStatistic;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dtpOut;
@@ -249,14 +199,9 @@
         private System.Windows.Forms.CheckBox ckbStatisticsForMonth;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblAmount;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnStatistic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvRoomNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dvRoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvStartDate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgvIsSmoking;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPhoneNumberUser;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartStatistics;
     }
 }
