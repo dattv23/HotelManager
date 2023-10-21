@@ -87,7 +87,7 @@
             this.tabControlClient.Location = new System.Drawing.Point(36, 14);
             this.tabControlClient.Name = "tabControlClient";
             this.tabControlClient.SelectedIndex = 0;
-            this.tabControlClient.Size = new System.Drawing.Size(1031, 417);
+            this.tabControlClient.Size = new System.Drawing.Size(1031, 591);
             this.tabControlClient.TabIndex = 0;
             // 
             // tabPageAddClient
@@ -107,7 +107,7 @@
             this.tabPageAddClient.Location = new System.Drawing.Point(4, 4);
             this.tabPageAddClient.Name = "tabPageAddClient";
             this.tabPageAddClient.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddClient.Size = new System.Drawing.Size(1023, 385);
+            this.tabPageAddClient.Size = new System.Drawing.Size(1023, 559);
             this.tabPageAddClient.TabIndex = 0;
             this.tabPageAddClient.Text = "ADD CLIENT";
             this.tabPageAddClient.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(274, 318);
+            this.btnAdd.Location = new System.Drawing.Point(274, 405);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(333, 45);
             this.btnAdd.TabIndex = 6;
@@ -511,7 +511,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserControlClient";
-            this.Size = new System.Drawing.Size(1102, 462);
+            this.Size = new System.Drawing.Size(1102, 643);
             this.tabControlClient.ResumeLayout(false);
             this.tabPageAddClient.ResumeLayout(false);
             this.tabPageAddClient.PerformLayout();
