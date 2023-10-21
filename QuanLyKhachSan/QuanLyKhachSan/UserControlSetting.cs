@@ -69,9 +69,7 @@ namespace QuanLyKhachSan
             cmbFont.Items.Add("Verdana");
 
             // Thiết lập danh sách ngôn ngữ
-            cmbLanguage.Items.Add("English");
-            cmbLanguage.Items.Add("French");
-            cmbLanguage.Items.Add("Spanish");
+            
         }
 
         private void btnSaveSetting_Click(object sender, EventArgs e)

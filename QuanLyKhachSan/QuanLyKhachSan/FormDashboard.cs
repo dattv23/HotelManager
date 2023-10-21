@@ -138,7 +138,7 @@ namespace QuanLyKhachSan
             userControlReservation1.Hide();
             userControlRoom1.Hide();
             userControlClient1.Hide();
-          userControlDashBoard12.Show();
+            userControlDashBoard11.Show();
         }
 
         private void btnClient_Click(object sender, EventArgs e)
@@ -148,7 +148,7 @@ namespace QuanLyKhachSan
             userControlReservation1.Hide();
             userControlRoom1.Hide();
             userControlClient1.Show();
-            userControlDashBoard12.Hide();
+            userControlDashBoard11.Hide();
         }
         private void btnRoom_Click(object sender, EventArgs e)
         {
@@ -157,7 +157,7 @@ namespace QuanLyKhachSan
             userControlReservation1.Hide();
             userControlRoom1.Show();
             userControlClient1.Hide();
-            userControlDashBoard12.Hide();
+            userControlDashBoard11.Hide();
         }
 
         private void btnReservation_Click(object sender, EventArgs e)
@@ -167,7 +167,7 @@ namespace QuanLyKhachSan
             userControlReservation1.Show();
             userControlRoom1.Hide();
             userControlClient1.Hide();
-            userControlDashBoard12.Hide();
+            userControlDashBoard11.Hide();
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -178,7 +178,7 @@ namespace QuanLyKhachSan
             userControlSetting1.Show();
             userControlReservation1.Hide();
             userControlRoom1.Hide();
-            userControlDashBoard12.Hide();
+            userControlDashBoard11.Hide();
         }
 
         private void linkLabelLogOut_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)

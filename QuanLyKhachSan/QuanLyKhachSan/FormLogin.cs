@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DevExpress.XtraWaitForm;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -26,12 +27,12 @@ namespace QuanLyKhachSan
 
         private void picMinimize_MouseHover(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(picMinimize, "Minimize");
+       
         }
 
         private void picClose_MouseHover(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(picClose, "Close");
+        
         }
 
         private void picClose_Click(object sender, EventArgs e)
@@ -182,6 +183,10 @@ namespace QuanLyKhachSan
         {
             FormForgotPassword frm = new FormForgotPassword();
             frm.Show();
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
         }
     }
 }

@@ -41,12 +41,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnStatistic = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlStatictis = new System.Windows.Forms.TabControl();
             this.tabPageStatisticsbyPrice = new System.Windows.Forms.TabPage();
-            this.tabPageStatisticsbyUser = new System.Windows.Forms.TabPage();
             this.chartStatistics = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPageStatisticsbyUser = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlStatictis.SuspendLayout();
             this.tabPageStatisticsbyPrice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).BeginInit();
             this.SuspendLayout();
@@ -162,17 +162,17 @@
             this.btnStatistic.UseVisualStyleBackColor = false;
             this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
             // 
-            // tabControl1
+            // tabControlStatictis
             // 
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabControl1.Controls.Add(this.tabPageStatisticsbyPrice);
-            this.tabControl1.Controls.Add(this.tabPageStatisticsbyUser);
-            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(30, 117);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1008, 460);
-            this.tabControl1.TabIndex = 9;
+            this.tabControlStatictis.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControlStatictis.Controls.Add(this.tabPageStatisticsbyPrice);
+            this.tabControlStatictis.Controls.Add(this.tabPageStatisticsbyUser);
+            this.tabControlStatictis.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlStatictis.Location = new System.Drawing.Point(30, 117);
+            this.tabControlStatictis.Name = "tabControlStatictis";
+            this.tabControlStatictis.SelectedIndex = 0;
+            this.tabControlStatictis.Size = new System.Drawing.Size(1031, 490);
+            this.tabControlStatictis.TabIndex = 9;
             // 
             // tabPageStatisticsbyPrice
             // 
@@ -181,23 +181,14 @@
             this.tabPageStatisticsbyPrice.Location = new System.Drawing.Point(4, 4);
             this.tabPageStatisticsbyPrice.Name = "tabPageStatisticsbyPrice";
             this.tabPageStatisticsbyPrice.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStatisticsbyPrice.Size = new System.Drawing.Size(1000, 428);
+            this.tabPageStatisticsbyPrice.Size = new System.Drawing.Size(1023, 458);
             this.tabPageStatisticsbyPrice.TabIndex = 0;
             this.tabPageStatisticsbyPrice.Text = "Statistics by Price";
             this.tabPageStatisticsbyPrice.UseVisualStyleBackColor = true;
             // 
-            // tabPageStatisticsbyUser
-            // 
-            this.tabPageStatisticsbyUser.Location = new System.Drawing.Point(4, 4);
-            this.tabPageStatisticsbyUser.Name = "tabPageStatisticsbyUser";
-            this.tabPageStatisticsbyUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStatisticsbyUser.Size = new System.Drawing.Size(1000, 428);
-            this.tabPageStatisticsbyUser.TabIndex = 1;
-            this.tabPageStatisticsbyUser.Text = "Statistics by User";
-            this.tabPageStatisticsbyUser.UseVisualStyleBackColor = true;
-            // 
             // chartStatistics
             // 
+            this.chartStatistics.BackColor = System.Drawing.Color.LightGray;
             chartArea1.Name = "ChartArea1";
             this.chartStatistics.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -212,12 +203,22 @@
             this.chartStatistics.TabIndex = 10;
             this.chartStatistics.Text = "chart1";
             // 
+            // tabPageStatisticsbyUser
+            // 
+            this.tabPageStatisticsbyUser.Location = new System.Drawing.Point(4, 4);
+            this.tabPageStatisticsbyUser.Name = "tabPageStatisticsbyUser";
+            this.tabPageStatisticsbyUser.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStatisticsbyUser.Size = new System.Drawing.Size(1023, 458);
+            this.tabPageStatisticsbyUser.TabIndex = 1;
+            this.tabPageStatisticsbyUser.Text = "Statistics by User";
+            this.tabPageStatisticsbyUser.UseVisualStyleBackColor = true;
+            // 
             // UserControlStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(198)))), ((int)(((byte)(218)))));
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlStatictis);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -225,7 +226,7 @@
             this.Size = new System.Drawing.Size(1102, 643);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlStatictis.ResumeLayout(false);
             this.tabPageStatisticsbyPrice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).EndInit();
             this.ResumeLayout(false);
@@ -243,7 +244,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnStatistic;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlStatictis;
         private System.Windows.Forms.TabPage tabPageStatisticsbyPrice;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStatistics;
         private System.Windows.Forms.TabPage tabPageStatisticsbyUser;
