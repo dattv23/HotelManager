@@ -124,7 +124,7 @@ namespace QuanLyKhachSan
 
         private void CreateInvoicePDF()
         {
-            string directoryPath = @"D:\HUTECH_IT\LapTrinhWinform\BillTransaction";
+            string directoryPath = @"D:\BillTransactions";
 
             Directory.CreateDirectory(directoryPath);
 
