@@ -369,7 +369,7 @@ namespace QuanLyKhachSan
             }
         }
 
-        private async void txtphone2_TextChanged(object sender, EventArgs e)
+        private  void txtphone2_TextChanged(object sender, EventArgs e)
         {
             foreach (var item in users)
             {
