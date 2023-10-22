@@ -147,7 +147,7 @@ namespace QuanLyKhachSan
                 UserControlStatistic_Load(sender, e);
                 return;
             }
-            
+
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -237,10 +237,10 @@ namespace QuanLyKhachSan
             int count = 0;
             foreach (RoomBooking roomBooking in list)
             {
-                
-                    userNumbers[roomBooking.checkin.Hour]++;
-                    count++;
-             
+
+                userNumbers[roomBooking.checkin.Hour]++;
+                count++;
+
             }
             if (count == 0)
             {
@@ -303,7 +303,7 @@ namespace QuanLyKhachSan
             int count = 0;
             foreach (RoomBooking roomBooking in list)
             {
-                if(roomBooking.checkin > startDate && roomBooking.checkin < endDate)
+                if (roomBooking.checkin > startDate && roomBooking.checkin < endDate)
                 {
                     userNumbers[roomBooking.checkin.Hour]++;
                     count++;
@@ -399,7 +399,62 @@ namespace QuanLyKhachSan
                     point.IsValueShownAsLabel = false;
                 }
             }
-        
+
+        }
+
+        private async void tabControlStatictis_Click(object sender, EventArgs e)
+        {
+            chartStatisticsByUser.Titles.Clear();
+            List<RoomBooking> list = await getDataByRoomBooking();
+            Dictionary<int, int> userNumbers = new Dictionary<int, int>();
+            for (int hour = 0; hour < 24; hour++)
+            {
+                userNumbers[hour] = 0;
+            }
+            int count = 0;
+            foreach (RoomBooking roomBooking in list)
+            {
+
+                userNumbers[roomBooking.checkin.Hour]++;
+                count++;
+
+            }
+            if (count == 0)
+            {
+                MessageBox.Show("There are no reservations at this time!");
+                return;
+            }
+            chartStatisticsByUser.Series["Quanlity"].Points.Clear();
+
+            foreach (var entry in userNumbers)
+            {
+                chartStatisticsByUser.Series["Quanlity"].Points.AddXY(entry.Key, entry.Value);
+            }
+            lblAmount.Text = count.ToString();
+            chartStatisticsByUser.ChartAreas[0].AxisX.Interval = 1;
+            chartStatisticsByUser.ChartAreas[0].AxisY.Interval = 1;
+            if (chartStatisticsByUser.Series["Quanlity"].Points.Count > 0)
+            {
+                chartStatisticsByUser.Series["Quanlity"].Points[0].AxisLabel = "";
+            }
+            chartStatisticsByUser.ChartAreas[0].AxisY.LabelStyle.Format = "0";
+            chartStatisticsByUser.Titles.Add("Total Room Booking Rental by Day");
+            chartStatisticsByUser.ChartAreas[0].AxisX.Title = "Hour";
+            chartStatisticsByUser.ChartAreas[0].AxisY.Title = "Quantity";
+            foreach (DataPoint point in chartStatisticsByUser.Series["Quanlity"].Points)
+            {
+
+                if (point.YValues[0] != 0)
+                {
+                    //point.LabelForeColor = Color.Blue;
+                    //point.LabelFont = new Font("Arial", 15);
+                    point.IsValueShownAsLabel = true;
+                }
+                else
+                {
+                    point.IsValueShownAsLabel = false;
+                }
+            }
         }
     }
 }

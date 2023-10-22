@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpOut = new System.Windows.Forms.DateTimePicker();
             this.dtpIn = new System.Windows.Forms.DateTimePicker();
-            this.ckbStatisticsForMonth = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.ckbStatisticsForMonth = new System.Windows.Forms.CheckBox();
             this.btnStatistic = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlStatictis = new System.Windows.Forms.TabControl();
             this.tabPageStatisticsbyPrice = new System.Windows.Forms.TabPage();
             this.chartStatistics = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPageStatisticsbyUser = new System.Windows.Forms.TabPage();
-            this.chartStatisticsByUser = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btnStatisticsByUser = new System.Windows.Forms.Button();
             this.ckbStatisticsReservationByMonth = new System.Windows.Forms.CheckBox();
+            this.btnStatisticsByUser = new System.Windows.Forms.Button();
+            this.chartStatisticsByUser = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlStatictis.SuspendLayout();
             this.tabPageStatisticsbyPrice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).BeginInit();
             this.tabPageStatisticsbyUser.SuspendLayout();
@@ -93,19 +93,6 @@
             this.dtpIn.Name = "dtpIn";
             this.dtpIn.Size = new System.Drawing.Size(262, 33);
             this.dtpIn.TabIndex = 10;
-            // 
-            // ckbStatisticsForMonth
-            // 
-            this.ckbStatisticsForMonth.AutoSize = true;
-            this.ckbStatisticsForMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbStatisticsForMonth.ForeColor = System.Drawing.Color.Cyan;
-            this.ckbStatisticsForMonth.Location = new System.Drawing.Point(6, 14);
-            this.ckbStatisticsForMonth.Name = "ckbStatisticsForMonth";
-            this.ckbStatisticsForMonth.Size = new System.Drawing.Size(463, 33);
-            this.ckbStatisticsForMonth.TabIndex = 9;
-            this.ckbStatisticsForMonth.Text = "Room statistics for the current month";
-            this.ckbStatisticsForMonth.UseVisualStyleBackColor = true;
-            this.ckbStatisticsForMonth.CheckedChanged += new System.EventHandler(this.ckbStatisticsForMonth_CheckedChanged);
             // 
             // label4
             // 
@@ -153,6 +140,19 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "From date :";
             // 
+            // ckbStatisticsForMonth
+            // 
+            this.ckbStatisticsForMonth.AutoSize = true;
+            this.ckbStatisticsForMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbStatisticsForMonth.ForeColor = System.Drawing.Color.Cyan;
+            this.ckbStatisticsForMonth.Location = new System.Drawing.Point(6, 14);
+            this.ckbStatisticsForMonth.Name = "ckbStatisticsForMonth";
+            this.ckbStatisticsForMonth.Size = new System.Drawing.Size(463, 33);
+            this.ckbStatisticsForMonth.TabIndex = 9;
+            this.ckbStatisticsForMonth.Text = "Room statistics for the current month";
+            this.ckbStatisticsForMonth.UseVisualStyleBackColor = true;
+            this.ckbStatisticsForMonth.CheckedChanged += new System.EventHandler(this.ckbStatisticsForMonth_CheckedChanged);
+            // 
             // btnStatistic
             // 
             this.btnStatistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -168,18 +168,18 @@
             this.btnStatistic.UseVisualStyleBackColor = false;
             this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
             // 
-            // tabControl1
+            // tabControlStatictis
             // 
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabControl1.Controls.Add(this.tabPageStatisticsbyPrice);
-            this.tabControl1.Controls.Add(this.tabPageStatisticsbyUser);
-            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(30, 117);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1008, 460);
-            this.tabControl1.TabIndex = 9;
-            this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
+            this.tabControlStatictis.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControlStatictis.Controls.Add(this.tabPageStatisticsbyPrice);
+            this.tabControlStatictis.Controls.Add(this.tabPageStatisticsbyUser);
+            this.tabControlStatictis.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlStatictis.Location = new System.Drawing.Point(30, 117);
+            this.tabControlStatictis.Name = "tabControlStatictis";
+            this.tabControlStatictis.SelectedIndex = 0;
+            this.tabControlStatictis.Size = new System.Drawing.Size(1031, 490);
+            this.tabControlStatictis.TabIndex = 9;
+            this.tabControlStatictis.Click += new System.EventHandler(this.tabControlStatictis_Click);
             // 
             // tabPageStatisticsbyPrice
             // 
@@ -190,23 +190,23 @@
             this.tabPageStatisticsbyPrice.Location = new System.Drawing.Point(4, 4);
             this.tabPageStatisticsbyPrice.Name = "tabPageStatisticsbyPrice";
             this.tabPageStatisticsbyPrice.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStatisticsbyPrice.Size = new System.Drawing.Size(1000, 424);
+            this.tabPageStatisticsbyPrice.Size = new System.Drawing.Size(1023, 454);
             this.tabPageStatisticsbyPrice.TabIndex = 0;
             this.tabPageStatisticsbyPrice.Text = "Statistics by Price";
             this.tabPageStatisticsbyPrice.UseVisualStyleBackColor = true;
             // 
             // chartStatistics
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartStatistics.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartStatistics.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chartStatistics.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartStatistics.Legends.Add(legend1);
             this.chartStatistics.Location = new System.Drawing.Point(36, 62);
             this.chartStatistics.Name = "chartStatistics";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "RoomPrices";
-            this.chartStatistics.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "RoomPrices";
+            this.chartStatistics.Series.Add(series1);
             this.chartStatistics.Size = new System.Drawing.Size(839, 356);
             this.chartStatistics.TabIndex = 10;
             this.chartStatistics.Text = "chart1";
@@ -219,29 +219,23 @@
             this.tabPageStatisticsbyUser.Location = new System.Drawing.Point(4, 4);
             this.tabPageStatisticsbyUser.Name = "tabPageStatisticsbyUser";
             this.tabPageStatisticsbyUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStatisticsbyUser.Size = new System.Drawing.Size(1000, 424);
+            this.tabPageStatisticsbyUser.Size = new System.Drawing.Size(1023, 454);
             this.tabPageStatisticsbyUser.TabIndex = 1;
             this.tabPageStatisticsbyUser.Text = "Statistics by User";
             this.tabPageStatisticsbyUser.UseVisualStyleBackColor = true;
             // 
-            // chartStatisticsByUser
+            // ckbStatisticsReservationByMonth
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartStatisticsByUser.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartStatisticsByUser.Legends.Add(legend3);
-            this.chartStatisticsByUser.Location = new System.Drawing.Point(47, 52);
-            this.chartStatisticsByUser.Name = "chartStatisticsByUser";
-            series3.ChartArea = "ChartArea1";
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.Legend = "Legend1";
-            series3.Name = "Quanlity";
-            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartStatisticsByUser.Series.Add(series3);
-            this.chartStatisticsByUser.Size = new System.Drawing.Size(839, 356);
-            this.chartStatisticsByUser.TabIndex = 11;
-            this.chartStatisticsByUser.Text = "chart1";
-            this.chartStatisticsByUser.Click += new System.EventHandler(this.chartStatisticsByUser_Click);
+            this.ckbStatisticsReservationByMonth.AutoSize = true;
+            this.ckbStatisticsReservationByMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbStatisticsReservationByMonth.ForeColor = System.Drawing.Color.Cyan;
+            this.ckbStatisticsReservationByMonth.Location = new System.Drawing.Point(26, 15);
+            this.ckbStatisticsReservationByMonth.Name = "ckbStatisticsReservationByMonth";
+            this.ckbStatisticsReservationByMonth.Size = new System.Drawing.Size(533, 33);
+            this.ckbStatisticsReservationByMonth.TabIndex = 14;
+            this.ckbStatisticsReservationByMonth.Text = "Reservation statistics for the current month";
+            this.ckbStatisticsReservationByMonth.UseVisualStyleBackColor = true;
+            this.ckbStatisticsReservationByMonth.CheckedChanged += new System.EventHandler(this.ckbStatisticsReservationByMonth_CheckedChanged);
             // 
             // btnStatisticsByUser
             // 
@@ -258,25 +252,31 @@
             this.btnStatisticsByUser.UseVisualStyleBackColor = false;
             this.btnStatisticsByUser.Click += new System.EventHandler(this.btnStatisticsByUser_Click);
             // 
-            // ckbStatisticsReservationByMonth
+            // chartStatisticsByUser
             // 
-            this.ckbStatisticsReservationByMonth.AutoSize = true;
-            this.ckbStatisticsReservationByMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbStatisticsReservationByMonth.ForeColor = System.Drawing.Color.Cyan;
-            this.ckbStatisticsReservationByMonth.Location = new System.Drawing.Point(26, 15);
-            this.ckbStatisticsReservationByMonth.Name = "ckbStatisticsReservationByMonth";
-            this.ckbStatisticsReservationByMonth.Size = new System.Drawing.Size(533, 33);
-            this.ckbStatisticsReservationByMonth.TabIndex = 14;
-            this.ckbStatisticsReservationByMonth.Text = "Reservation statistics for the current month";
-            this.ckbStatisticsReservationByMonth.UseVisualStyleBackColor = true;
-            this.ckbStatisticsReservationByMonth.CheckedChanged += new System.EventHandler(this.ckbStatisticsReservationByMonth_CheckedChanged);
+            chartArea2.Name = "ChartArea1";
+            this.chartStatisticsByUser.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartStatisticsByUser.Legends.Add(legend2);
+            this.chartStatisticsByUser.Location = new System.Drawing.Point(47, 52);
+            this.chartStatisticsByUser.Name = "chartStatisticsByUser";
+            series2.ChartArea = "ChartArea1";
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Legend = "Legend1";
+            series2.Name = "Quanlity";
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartStatisticsByUser.Series.Add(series2);
+            this.chartStatisticsByUser.Size = new System.Drawing.Size(839, 356);
+            this.chartStatisticsByUser.TabIndex = 11;
+            this.chartStatisticsByUser.Text = "chart1";
+            this.chartStatisticsByUser.Click += new System.EventHandler(this.chartStatisticsByUser_Click);
             // 
             // UserControlStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(198)))), ((int)(((byte)(218)))));
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlStatictis);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -285,7 +285,7 @@
             this.Load += new System.EventHandler(this.UserControlStatistic_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlStatictis.ResumeLayout(false);
             this.tabPageStatisticsbyPrice.ResumeLayout(false);
             this.tabPageStatisticsbyPrice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).EndInit();
@@ -307,7 +307,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnStatistic;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlStatictis;
         private System.Windows.Forms.TabPage tabPageStatisticsbyPrice;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStatistics;
         private System.Windows.Forms.TabPage tabPageStatisticsbyUser;

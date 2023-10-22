@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.lbLogout = new System.Windows.Forms.LinkLabel();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
@@ -61,12 +62,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.userControlDashBoard12 = new QuanLyKhachSan.UserControlDashBoard1();
+            this.panelMainForm = new System.Windows.Forms.Panel();
+            this.userControlDashBoard11 = new QuanLyKhachSan.UserControlDashBoard1();
+            this.userControlSetting1 = new QuanLyKhachSan.UserControlSetting();
             this.userControlRoom1 = new QuanLyKhachSan.UserControlRoom();
             this.userControlReservation1 = new QuanLyKhachSan.UserControlReservation();
             this.userControlClient1 = new QuanLyKhachSan.UserControlClient();
-            this.userControlSetting1 = new QuanLyKhachSan.UserControlSetting();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panelDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -77,12 +78,12 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // panelDashboard
@@ -125,13 +126,13 @@
             // 
             this.btnPayment.FlatAppearance.BorderSize = 0;
             this.btnPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayment.Location = new System.Drawing.Point(51, 518);
             this.btnPayment.Margin = new System.Windows.Forms.Padding(4);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(327, 56);
             this.btnPayment.TabIndex = 7;
-            this.btnPayment.Text = "Payment";
+            this.btnPayment.Text = " Payment";
             this.btnPayment.UseVisualStyleBackColor = true;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
@@ -209,7 +210,7 @@
             // 
             this.btnSetting.FlatAppearance.BorderSize = 0;
             this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetting.Location = new System.Drawing.Point(43, 582);
             this.btnSetting.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetting.Name = "btnSetting";
@@ -223,13 +224,13 @@
             // 
             this.btnReservation.FlatAppearance.BorderSize = 0;
             this.btnReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReservation.Location = new System.Drawing.Point(40, 459);
             this.btnReservation.Margin = new System.Windows.Forms.Padding(4);
             this.btnReservation.Name = "btnReservation";
             this.btnReservation.Size = new System.Drawing.Size(327, 56);
             this.btnReservation.TabIndex = 4;
-            this.btnReservation.Text = "        Reservation";
+            this.btnReservation.Text = "         Reservation";
             this.btnReservation.UseVisualStyleBackColor = true;
             this.btnReservation.Click += new System.EventHandler(this.btnReservation_Click);
             // 
@@ -237,7 +238,7 @@
             // 
             this.btnRoom.FlatAppearance.BorderSize = 0;
             this.btnRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRoom.Location = new System.Drawing.Point(37, 395);
             this.btnRoom.Margin = new System.Windows.Forms.Padding(4);
             this.btnRoom.Name = "btnRoom";
@@ -251,13 +252,13 @@
             // 
             this.btnClient.FlatAppearance.BorderSize = 0;
             this.btnClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClient.Location = new System.Drawing.Point(34, 331);
             this.btnClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnClient.Name = "btnClient";
             this.btnClient.Size = new System.Drawing.Size(327, 56);
             this.btnClient.TabIndex = 2;
-            this.btnClient.Text = " Client";
+            this.btnClient.Text = "Client";
             this.btnClient.UseVisualStyleBackColor = true;
             this.btnClient.Click += new System.EventHandler(this.btnClient_Click);
             // 
@@ -265,7 +266,7 @@
             // 
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.Location = new System.Drawing.Point(37, 267);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashboard.Name = "btnDashboard";
@@ -277,6 +278,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panelMainForm);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.pictureBox4);
@@ -334,6 +336,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(997, 153);
             this.panel4.TabIndex = 0;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox10.Image = global::QuanLyKhachSan.Properties.Resources.turn_off;
+            this.pictureBox10.Location = new System.Drawing.Point(835, 92);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(42, 40);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 8;
+            this.pictureBox10.TabStop = false;
             // 
             // lbLogout
             // 
@@ -445,72 +458,69 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // userControlDashBoard12
+            // panelMainForm
             // 
-            this.userControlDashBoard12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlDashBoard12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userControlDashBoard12.Location = new System.Drawing.Point(369, 153);
-            this.userControlDashBoard12.Margin = new System.Windows.Forms.Padding(4);
-            this.userControlDashBoard12.Name = "userControlDashBoard12";
-            this.userControlDashBoard12.Size = new System.Drawing.Size(997, 567);
-            this.userControlDashBoard12.TabIndex = 0;
+            this.panelMainForm.Location = new System.Drawing.Point(377, 160);
+            this.panelMainForm.Name = "panelMainForm";
+            this.panelMainForm.Size = new System.Drawing.Size(1093, 636);
+            this.panelMainForm.TabIndex = 0;
+            // 
+            // userControlDashBoard11
+            // 
+            this.userControlDashBoard11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.userControlDashBoard11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlDashBoard11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userControlDashBoard11.Location = new System.Drawing.Point(369, 153);
+            this.userControlDashBoard11.Margin = new System.Windows.Forms.Padding(5);
+            this.userControlDashBoard11.Name = "userControlDashBoard11";
+            this.userControlDashBoard11.Size = new System.Drawing.Size(997, 567);
+            this.userControlDashBoard11.TabIndex = 6;
+            // 
+            // userControlSetting1
+            // 
+            this.userControlSetting1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.userControlSetting1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlSetting1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userControlSetting1.Location = new System.Drawing.Point(369, 153);
+            this.userControlSetting1.Margin = new System.Windows.Forms.Padding(4);
+            this.userControlSetting1.Name = "userControlSetting1";
+            this.userControlSetting1.Size = new System.Drawing.Size(997, 567);
+            this.userControlSetting1.TabIndex = 5;
+            this.userControlSetting1.Tag = "0";
             // 
             // userControlRoom1
             // 
+            this.userControlRoom1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.userControlRoom1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlRoom1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userControlRoom1.Location = new System.Drawing.Point(369, 153);
             this.userControlRoom1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlRoom1.Name = "userControlRoom1";
             this.userControlRoom1.Size = new System.Drawing.Size(997, 567);
-            this.userControlRoom1.TabIndex = 0;
-            this.userControlRoom1.Visible = false;
+            this.userControlRoom1.TabIndex = 4;
             // 
             // userControlReservation1
             // 
+            this.userControlReservation1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.userControlReservation1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlReservation1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userControlReservation1.Location = new System.Drawing.Point(369, 153);
             this.userControlReservation1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlReservation1.Name = "userControlReservation1";
             this.userControlReservation1.Size = new System.Drawing.Size(997, 567);
-            this.userControlReservation1.TabIndex = 0;
-            this.userControlReservation1.Visible = false;
+            this.userControlReservation1.TabIndex = 3;
             // 
             // userControlClient1
             // 
             this.userControlClient1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.userControlClient1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.userControlClient1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlClient1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userControlClient1.Location = new System.Drawing.Point(369, 153);
             this.userControlClient1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlClient1.Name = "userControlClient1";
             this.userControlClient1.Size = new System.Drawing.Size(997, 567);
-            this.userControlClient1.TabIndex = 0;
-            this.userControlClient1.Visible = false;
-            // 
-            // userControlSetting1
-            // 
-            this.userControlSetting1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlSetting1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userControlSetting1.Location = new System.Drawing.Point(369, 153);
-            this.userControlSetting1.Margin = new System.Windows.Forms.Padding(4);
-            this.userControlSetting1.Name = "userControlSetting1";
-            this.userControlSetting1.Size = new System.Drawing.Size(997, 567);
-            this.userControlSetting1.TabIndex = 0;
-            this.userControlSetting1.Tag = "0";
-            this.userControlSetting1.Visible = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox10.Image = global::QuanLyKhachSan.Properties.Resources.turn_off;
-            this.pictureBox10.Location = new System.Drawing.Point(835, 92);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(42, 40);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 8;
-            this.pictureBox10.TabStop = false;
+            this.userControlClient1.TabIndex = 2;
             // 
             // FormDashboard
             // 
@@ -518,17 +528,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1366, 720);
-            this.Controls.Add(this.userControlDashBoard12);
+            this.Controls.Add(this.userControlDashBoard11);
+            this.Controls.Add(this.userControlSetting1);
             this.Controls.Add(this.userControlRoom1);
             this.Controls.Add(this.userControlReservation1);
             this.Controls.Add(this.userControlClient1);
-            this.Controls.Add(this.userControlSetting1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panelDashboard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDashboard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormDashboard_Load_1);
@@ -544,13 +554,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panelContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -585,15 +595,16 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnClient;
         private System.Windows.Forms.Button btnDashboard;
-        private UserControlSetting userControlSetting1;
-        private UserControlClient userControlClient1;
-        private UserControlReservation userControlReservation1;
-        private UserControlRoom userControlRoom1;
-        private UserControlDashBoard1 userControlDashBoard12;
         private System.Windows.Forms.LinkLabel lbLogout;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Panel panelMainForm;
+        private UserControlClient userControlClient1;
+        private UserControlReservation userControlReservation1;
+        private UserControlRoom userControlRoom1;
+        private UserControlSetting userControlSetting1;
+        private UserControlDashBoard1 userControlDashBoard11;
     }
 }
 

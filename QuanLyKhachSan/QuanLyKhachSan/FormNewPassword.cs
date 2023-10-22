@@ -105,5 +105,10 @@ namespace QuanLyKhachSan
                 throw;
             }
         }
+
+        private void picShowNW_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
