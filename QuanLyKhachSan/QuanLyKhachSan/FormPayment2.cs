@@ -165,7 +165,7 @@ namespace QuanLyKhachSan
                 document.Add(new Paragraph("Total Amount: " + lblTotalAmount.Text, infoFont)); // Sử dụng infoFont
 
                 document.Close();
-                MessageBox.Show("Created or replaced PDF invoice");
+                MessageBox.Show("Created or replaced PDF invoice. Directory: D:\\BillTransactions");
             }
             catch (Exception ex)
             {
@@ -183,6 +183,7 @@ namespace QuanLyKhachSan
         private async void btnPayment_Click(object sender, EventArgs e)
         {
             await SavePayment();
+            this.Close();
         }
 
         private void picClose_Click(object sender, EventArgs e)

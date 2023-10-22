@@ -108,7 +108,34 @@ namespace QuanLyKhachSan
 
         private void picShowNW_Click(object sender, EventArgs e)
         {
+            if (txtNewPassWord.UseSystemPasswordChar)
+            {
+                picShowNW.Hide();
+                txtNewPassWord.UseSystemPasswordChar = false;
+                picHideNewPW.Show();
+            } else
+            {
+                picShowNW.Show();
+                txtNewPassWord.UseSystemPasswordChar = true;
+                picHideNewPW.Hide();
+            }
+            
+        }
 
+        private void picShow_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmPassword.UseSystemPasswordChar)
+            {
+                picShow.Hide();
+                txtConfirmPassword.UseSystemPasswordChar = false;
+                picHide.Show();
+            } else
+            {
+                picShow.Show();
+                txtConfirmPassword.UseSystemPasswordChar = true;
+                picHide.Hide();
+            }
+            
         }
     }
 }

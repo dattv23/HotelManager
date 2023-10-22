@@ -151,7 +151,7 @@ namespace QuanLyKhachSan
             {
                 if (item.startDate < DateTime.Now && checkReservationUnpaid(item.reservationNumber))
                 {
-                    amount = (item.checkout - item.checkin).Days * getPriceBookingRoom(rooms, item.roomNumber);
+                    amount = ((item.checkout - item.checkin).Days + 1) * getPriceBookingRoom(rooms, item.roomNumber);
                     dgvPayment.Rows.Add(item.reservationNumber, item.phoneNumber, item.roomNumber, roomStyle(item.style), item.startDate, amount);
                 }
             }
@@ -174,14 +174,16 @@ namespace QuanLyKhachSan
                     MessageBox.Show("Phone number is not valid!", "Error");
                     return;
                 }
+                dgvPayment.Rows.Clear();
+                List<RoomBooking> roomBookings = new List<RoomBooking>();
                 foreach (var item in bookings)
                 {
                     if (item.phoneNumber == txtPhoneNo.Text)
                     {
-                        dgvPayment.Rows.Clear();
-                        loadDGV(new List<RoomBooking> { item });
+                        roomBookings.Add(item);
                     }
                 }
+                loadDGV(roomBookings);
             }
             catch (Exception)
             {

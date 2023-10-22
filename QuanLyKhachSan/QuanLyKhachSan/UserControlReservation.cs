@@ -32,7 +32,7 @@ namespace QuanLyKhachSan
 
             foreach (var item in lRoomBooking)
             {
-                dgvReservation.Rows.Add(ID++, item.roomNumber, item.phoneNumber, item.checkin, item.checkout);
+                dgvReservation.Rows.Add(ID++, item.roomNumber, item.phoneNumber, item.checkin.ToString("dd/MM/yyyy"), item.checkout.ToString("dd/MM/yyyy"));
             }
             return;
         }

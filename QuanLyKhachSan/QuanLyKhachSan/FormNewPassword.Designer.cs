@@ -30,26 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewPassword));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.grNewPassWord = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.picShow = new System.Windows.Forms.PictureBox();
             this.btnCanCel = new System.Windows.Forms.Button();
+            this.picShowNW = new System.Windows.Forms.PictureBox();
+            this.picShow = new System.Windows.Forms.PictureBox();
             this.btnChange = new System.Windows.Forms.Button();
-            this.lblConfirmPassword = new System.Windows.Forms.Label();
+            this.picHideNewPW = new System.Windows.Forms.PictureBox();
             this.lblNewPW = new System.Windows.Forms.Label();
             this.picHide = new System.Windows.Forms.PictureBox();
+            this.lblConfirmPassword = new System.Windows.Forms.Label();
+            this.txtNewPassWord = new System.Windows.Forms.TextBox();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.grNewPassWord = new System.Windows.Forms.GroupBox();
-            this.picHideNewPW = new System.Windows.Forms.PictureBox();
-            this.picShowNW = new System.Windows.Forms.PictureBox();
-            this.txtNewPassWord = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            this.grNewPassWord.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowNW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHideNewPW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.grNewPassWord.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHideNewPW)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShowNW)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,6 +63,25 @@
             this.panel1.Size = new System.Drawing.Size(1294, 751);
             this.panel1.TabIndex = 0;
             // 
+            // grNewPassWord
+            // 
+            this.grNewPassWord.Controls.Add(this.dateTimePicker1);
+            this.grNewPassWord.Controls.Add(this.btnCanCel);
+            this.grNewPassWord.Controls.Add(this.picShowNW);
+            this.grNewPassWord.Controls.Add(this.picShow);
+            this.grNewPassWord.Controls.Add(this.btnChange);
+            this.grNewPassWord.Controls.Add(this.picHideNewPW);
+            this.grNewPassWord.Controls.Add(this.lblNewPW);
+            this.grNewPassWord.Controls.Add(this.picHide);
+            this.grNewPassWord.Controls.Add(this.lblConfirmPassword);
+            this.grNewPassWord.Controls.Add(this.txtNewPassWord);
+            this.grNewPassWord.Controls.Add(this.txtConfirmPassword);
+            this.grNewPassWord.Location = new System.Drawing.Point(388, 238);
+            this.grNewPassWord.Name = "grNewPassWord";
+            this.grNewPassWord.Size = new System.Drawing.Size(556, 436);
+            this.grNewPassWord.TabIndex = 23;
+            this.grNewPassWord.TabStop = false;
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,18 +89,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(437, 32);
             this.dateTimePicker1.TabIndex = 22;
-            // 
-            // picShow
-            // 
-            this.picShow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picShow.Image = global::QuanLyKhachSan.Properties.Resources.icons8_eye_64;
-            this.picShow.Location = new System.Drawing.Point(449, 247);
-            this.picShow.Name = "picShow";
-            this.picShow.Size = new System.Drawing.Size(38, 30);
-            this.picShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picShow.TabIndex = 20;
-            this.picShow.TabStop = false;
             // 
             // btnCanCel
             // 
@@ -100,6 +107,32 @@
             this.btnCanCel.UseVisualStyleBackColor = false;
             this.btnCanCel.Click += new System.EventHandler(this.btnCanCel_Click);
             // 
+            // picShowNW
+            // 
+            this.picShowNW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picShowNW.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picShowNW.Image = global::QuanLyKhachSan.Properties.Resources.icons8_eye_64;
+            this.picShowNW.Location = new System.Drawing.Point(449, 147);
+            this.picShowNW.Name = "picShowNW";
+            this.picShowNW.Size = new System.Drawing.Size(38, 30);
+            this.picShowNW.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picShowNW.TabIndex = 20;
+            this.picShowNW.TabStop = false;
+            this.picShowNW.Click += new System.EventHandler(this.picShowNW_Click);
+            // 
+            // picShow
+            // 
+            this.picShow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picShow.Image = global::QuanLyKhachSan.Properties.Resources.icons8_eye_64;
+            this.picShow.Location = new System.Drawing.Point(449, 247);
+            this.picShow.Name = "picShow";
+            this.picShow.Size = new System.Drawing.Size(38, 30);
+            this.picShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picShow.TabIndex = 20;
+            this.picShow.TabStop = false;
+            this.picShow.Click += new System.EventHandler(this.picShow_Click);
+            // 
             // btnChange
             // 
             this.btnChange.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -117,16 +150,17 @@
             this.btnChange.UseVisualStyleBackColor = false;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
-            // lblConfirmPassword
+            // picHideNewPW
             // 
-            this.lblConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblConfirmPassword.AutoSize = true;
-            this.lblConfirmPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPassword.Location = new System.Drawing.Point(47, 203);
-            this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(180, 23);
-            this.lblConfirmPassword.TabIndex = 14;
-            this.lblConfirmPassword.Text = "Confirm Pasword:";
+            this.picHideNewPW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picHideNewPW.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picHideNewPW.Image = global::QuanLyKhachSan.Properties.Resources.icons8_hide_64;
+            this.picHideNewPW.Location = new System.Drawing.Point(449, 147);
+            this.picHideNewPW.Name = "picHideNewPW";
+            this.picHideNewPW.Size = new System.Drawing.Size(38, 30);
+            this.picHideNewPW.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHideNewPW.TabIndex = 21;
+            this.picHideNewPW.TabStop = false;
             // 
             // lblNewPW
             // 
@@ -151,6 +185,26 @@
             this.picHide.TabIndex = 21;
             this.picHide.TabStop = false;
             // 
+            // lblConfirmPassword
+            // 
+            this.lblConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblConfirmPassword.AutoSize = true;
+            this.lblConfirmPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPassword.Location = new System.Drawing.Point(47, 203);
+            this.lblConfirmPassword.Name = "lblConfirmPassword";
+            this.lblConfirmPassword.Size = new System.Drawing.Size(180, 23);
+            this.lblConfirmPassword.TabIndex = 14;
+            this.lblConfirmPassword.Text = "Confirm Pasword:";
+            // 
+            // txtNewPassWord
+            // 
+            this.txtNewPassWord.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNewPassWord.Location = new System.Drawing.Point(48, 147);
+            this.txtNewPassWord.Name = "txtNewPassWord";
+            this.txtNewPassWord.Size = new System.Drawing.Size(395, 28);
+            this.txtNewPassWord.TabIndex = 17;
+            this.txtNewPassWord.UseSystemPasswordChar = true;
+            // 
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -170,59 +224,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // grNewPassWord
-            // 
-            this.grNewPassWord.Controls.Add(this.dateTimePicker1);
-            this.grNewPassWord.Controls.Add(this.btnCanCel);
-            this.grNewPassWord.Controls.Add(this.picShowNW);
-            this.grNewPassWord.Controls.Add(this.picShow);
-            this.grNewPassWord.Controls.Add(this.btnChange);
-            this.grNewPassWord.Controls.Add(this.picHideNewPW);
-            this.grNewPassWord.Controls.Add(this.lblNewPW);
-            this.grNewPassWord.Controls.Add(this.picHide);
-            this.grNewPassWord.Controls.Add(this.lblConfirmPassword);
-            this.grNewPassWord.Controls.Add(this.txtNewPassWord);
-            this.grNewPassWord.Controls.Add(this.txtConfirmPassword);
-            this.grNewPassWord.Location = new System.Drawing.Point(388, 238);
-            this.grNewPassWord.Name = "grNewPassWord";
-            this.grNewPassWord.Size = new System.Drawing.Size(556, 436);
-            this.grNewPassWord.TabIndex = 23;
-            this.grNewPassWord.TabStop = false;
-            // 
-            // picHideNewPW
-            // 
-            this.picHideNewPW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picHideNewPW.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picHideNewPW.Image = global::QuanLyKhachSan.Properties.Resources.icons8_hide_64;
-            this.picHideNewPW.Location = new System.Drawing.Point(449, 147);
-            this.picHideNewPW.Name = "picHideNewPW";
-            this.picHideNewPW.Size = new System.Drawing.Size(38, 30);
-            this.picHideNewPW.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHideNewPW.TabIndex = 21;
-            this.picHideNewPW.TabStop = false;
-            // 
-            // picShowNW
-            // 
-            this.picShowNW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picShowNW.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picShowNW.Image = global::QuanLyKhachSan.Properties.Resources.icons8_eye_64;
-            this.picShowNW.Location = new System.Drawing.Point(449, 147);
-            this.picShowNW.Name = "picShowNW";
-            this.picShowNW.Size = new System.Drawing.Size(38, 30);
-            this.picShowNW.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picShowNW.TabIndex = 20;
-            this.picShowNW.TabStop = false;
-            this.picShowNW.Click += new System.EventHandler(this.picShowNW_Click);
-            // 
-            // txtNewPassWord
-            // 
-            this.txtNewPassWord.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNewPassWord.Location = new System.Drawing.Point(48, 147);
-            this.txtNewPassWord.Name = "txtNewPassWord";
-            this.txtNewPassWord.Size = new System.Drawing.Size(395, 28);
-            this.txtNewPassWord.TabIndex = 17;
-            this.txtNewPassWord.UseSystemPasswordChar = true;
-            // 
             // FormNewPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -237,13 +238,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log In | NewPassword";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picShow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHide)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grNewPassWord.ResumeLayout(false);
             this.grNewPassWord.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHideNewPW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShowNW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHideNewPW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
