@@ -54,7 +54,7 @@ namespace QuanLyKhachSan
 
                         // Xóa tất cả các hàng hiện có trong DataGridView
                         dgvRoom.Rows.Clear();
-
+                        roomList = roomList.OrderBy(room => room.roomNumber).ToList();
                         // Thêm dữ liệu phòng mới vào DataGridView
                         foreach (var room in roomList)
                         {

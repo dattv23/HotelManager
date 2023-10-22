@@ -18,6 +18,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using GLib;
 using DevExpress.XtraRichEdit.Fields;
+using DateTime = System.DateTime;
 
 namespace QuanLyKhachSan
 {
@@ -327,6 +328,7 @@ namespace QuanLyKhachSan
                             dgvReservation.Rows[index].Cells[3].Value = item.checkin;
                             dgvReservation.Rows[index].Cells[4].Value = item.checkout;
                         }
+                        return roomList;
 
                     }
                     else if (response.StatusCode == HttpStatusCode.NotFound)
@@ -455,6 +457,7 @@ namespace QuanLyKhachSan
         private async void cbxType_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Room> lRoom = JsonConvert.DeserializeObject<List<Room>>(await getDataRoom());
+            lRoom = lRoom.OrderBy(item => item.roomNumber).ToList();
             cbxNo.Items.Clear();
             foreach (var item in lRoom)
             {
@@ -462,7 +465,6 @@ namespace QuanLyKhachSan
                 {
                     cbxNo.Items.Add(item.roomNumber);
                 }
-
             }
         }
 
@@ -473,20 +475,22 @@ namespace QuanLyKhachSan
                 loadDGV();
             }
         }
+        private List<RoomBooking> roomNo;
 
-        private void txtPhoneNumber2_TextChanged(object sender, EventArgs e)
+        private async void txtPhoneNumber2_TextChanged(object sender, EventArgs e)
         {
             string phoneNumber = txtPhoneNumber2.Text;
-
-            if (string.IsNullOrEmpty(phoneNumber))
+         
+            if (int.TryParse(phoneNumber, out int roomNumber))
             {
-                // Clear the controls when the phone number is empty
-                txtPhoneNumber2.Clear();
-                cbxNo2.SelectedIndex = 0;
-                cbxType2.SelectedIndex = 0;
-                dtpIn2.Value = System.DateTime.Now;
-                dtpOut2.Value = System.DateTime.Now;
+                roomNo = await FindBookingWithPhone(phoneNumber);
+                cbxReservationNumber.Items.Clear();
+                foreach (var booking in roomNo)
+                {
+                    cbxReservationNumber.Items.Add(booking.reservationNumber.ToString());
+                }
             }
+            
         }
 
         private async void cbxType2_SelectedIndexChanged(object sender, EventArgs e)
@@ -495,12 +499,44 @@ namespace QuanLyKhachSan
             cbxNo2.Items.Clear();
             foreach (var item in lRoom)
             {
-                if (item.style == cbxType.SelectedIndex)
+                if (item.style == cbxType2.SelectedIndex)
                 {
                     cbxNo2.Items.Add(item.roomNumber);
                 }
 
             }
+        }
+        public string roomStyle(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    return "Standard";
+                case 1:
+                    return "Deluxe";
+                case 2:
+                    return "Family";
+                case 3:
+                    return "Business";
+            }
+            return null;
+        }
+
+        private void cbxReservationNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach(var item in roomNo)
+            {
+                if(item.reservationNumber == cbxReservationNumber.Text)
+                {
+                    cbxType2.Text = roomStyle(item.style);
+                    cbxNo2.Items.Clear();
+                    cbxNo2.Items.Add(item.roomNumber);
+                    dtpIn2.Value = item.checkin;
+                    dtpOut2.Value = item.checkout;
+                }
+            }
+
+            //cbxNo2.Items.Add(int.Parse(selectedRoomNumberText)); 
         }
     }
 }

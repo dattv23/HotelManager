@@ -67,6 +67,8 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbxReservationNumber = new System.Windows.Forms.ComboBox();
             this.tabPageUpdateAndCancelReservation.SuspendLayout();
             this.tabPageAddReservation.SuspendLayout();
             this.tabControlReservation.SuspendLayout();
@@ -80,7 +82,7 @@
             this.dtpIn2.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpIn2.Location = new System.Drawing.Point(124, 421);
             this.dtpIn2.Name = "dtpIn2";
-            this.dtpIn2.Size = new System.Drawing.Size(333, 28);
+            this.dtpIn2.Size = new System.Drawing.Size(333, 33);
             this.dtpIn2.TabIndex = 4;
             // 
             // cbxNo2
@@ -89,20 +91,11 @@
             this.cbxNo2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNo2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxNo2.FormattingEnabled = true;
-            this.cbxNo2.Items.AddRange(new object[] {
-            "102",
-            "103",
-            "104",
-            "201",
-            "202",
-            "203",
-            "301",
-            "302",
-            "303"});
             this.cbxNo2.Location = new System.Drawing.Point(572, 159);
             this.cbxNo2.Name = "cbxNo2";
-            this.cbxNo2.Size = new System.Drawing.Size(333, 27);
+            this.cbxNo2.Size = new System.Drawing.Size(333, 31);
             this.cbxNo2.TabIndex = 2;
+            
             // 
             // cbxType2
             // 
@@ -117,7 +110,7 @@
             "Business"});
             this.cbxType2.Location = new System.Drawing.Point(124, 159);
             this.cbxType2.Name = "cbxType2";
-            this.cbxType2.Size = new System.Drawing.Size(333, 27);
+            this.cbxType2.Size = new System.Drawing.Size(333, 31);
             this.cbxType2.TabIndex = 1;
             this.cbxType2.SelectedIndexChanged += new System.EventHandler(this.cbxType2_SelectedIndexChanged);
             // 
@@ -163,7 +156,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label9.Location = new System.Drawing.Point(570, 382);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 23);
+            this.label9.Size = new System.Drawing.Size(60, 28);
             this.label9.TabIndex = 0;
             this.label9.Text = "Out:";
             // 
@@ -175,7 +168,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label10.Location = new System.Drawing.Point(120, 378);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 23);
+            this.label10.Size = new System.Drawing.Size(40, 28);
             this.label10.TabIndex = 0;
             this.label10.Text = "In:";
             // 
@@ -187,7 +180,7 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label11.Location = new System.Drawing.Point(119, 231);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(161, 23);
+            this.label11.Size = new System.Drawing.Size(191, 28);
             this.label11.TabIndex = 0;
             this.label11.Text = "Phone Number:";
             // 
@@ -199,16 +192,17 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label12.Location = new System.Drawing.Point(570, 97);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 23);
+            this.label12.Size = new System.Drawing.Size(140, 28);
             this.label12.TabIndex = 0;
             this.label12.Text = "Room No..:";
+            
             // 
             // txtPhoneNumber2
             // 
             this.txtPhoneNumber2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPhoneNumber2.Location = new System.Drawing.Point(123, 291);
             this.txtPhoneNumber2.Name = "txtPhoneNumber2";
-            this.txtPhoneNumber2.Size = new System.Drawing.Size(331, 28);
+            this.txtPhoneNumber2.Size = new System.Drawing.Size(331, 33);
             this.txtPhoneNumber2.TabIndex = 3;
             this.txtPhoneNumber2.TextChanged += new System.EventHandler(this.txtPhoneNumber2_TextChanged);
             // 
@@ -218,7 +212,7 @@
             this.dtpOut2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpOut2.Location = new System.Drawing.Point(572, 421);
             this.dtpOut2.Name = "dtpOut2";
-            this.dtpOut2.Size = new System.Drawing.Size(333, 32);
+            this.dtpOut2.Size = new System.Drawing.Size(333, 37);
             this.dtpOut2.TabIndex = 5;
             // 
             // txtSearchPhoneNumber
@@ -239,7 +233,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label7.Location = new System.Drawing.Point(203, 68);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 23);
+            this.label7.Size = new System.Drawing.Size(191, 28);
             this.label7.TabIndex = 0;
             this.label7.Text = "Phone Number:";
             // 
@@ -251,13 +245,14 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label13.Location = new System.Drawing.Point(120, 93);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(125, 23);
+            this.label13.Size = new System.Drawing.Size(148, 28);
             this.label13.TabIndex = 0;
             this.label13.Text = "Room Type:";
             // 
             // tabPageUpdateAndCancelReservation
             // 
             this.tabPageUpdateAndCancelReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(238)))), ((int)(((byte)(224)))));
+            this.tabPageUpdateAndCancelReservation.Controls.Add(this.cbxReservationNumber);
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.txtPhoneNumber2);
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.dtpOut2);
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.dtpIn2);
@@ -268,6 +263,7 @@
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.label9);
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.label10);
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.label11);
+            this.tabPageUpdateAndCancelReservation.Controls.Add(this.label15);
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.label12);
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.label13);
             this.tabPageUpdateAndCancelReservation.Controls.Add(this.label14);
@@ -275,7 +271,7 @@
             this.tabPageUpdateAndCancelReservation.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageUpdateAndCancelReservation.Name = "tabPageUpdateAndCancelReservation";
             this.tabPageUpdateAndCancelReservation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUpdateAndCancelReservation.Size = new System.Drawing.Size(1023, 559);
+            this.tabPageUpdateAndCancelReservation.Size = new System.Drawing.Size(1038, 625);
             this.tabPageUpdateAndCancelReservation.TabIndex = 2;
             this.tabPageUpdateAndCancelReservation.Text = "UPDATE AND CANCEL RESERVATION";
             // 
@@ -286,7 +282,7 @@
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label14.Location = new System.Drawing.Point(17, 17);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(302, 22);
+            this.label14.Size = new System.Drawing.Size(367, 26);
             this.label14.TabIndex = 0;
             this.label14.Text = "Update and Cancel Reservation: ";
             // 
@@ -298,7 +294,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label8.Location = new System.Drawing.Point(20, 15);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(202, 23);
+            this.label8.Size = new System.Drawing.Size(240, 28);
             this.label8.TabIndex = 0;
             this.label8.Text = "Search Reservation:";
             // 
@@ -331,7 +327,7 @@
             this.txtPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhoneNumber.Location = new System.Drawing.Point(126, 339);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(331, 32);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(331, 37);
             this.txtPhoneNumber.TabIndex = 3;
             // 
             // dtpOut
@@ -340,7 +336,7 @@
             this.dtpOut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpOut.Location = new System.Drawing.Point(579, 463);
             this.dtpOut.Name = "dtpOut";
-            this.dtpOut.Size = new System.Drawing.Size(333, 32);
+            this.dtpOut.Size = new System.Drawing.Size(333, 37);
             this.dtpOut.TabIndex = 5;
             // 
             // dtpIn
@@ -349,7 +345,7 @@
             this.dtpIn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpIn.Location = new System.Drawing.Point(126, 463);
             this.dtpIn.Name = "dtpIn";
-            this.dtpIn.Size = new System.Drawing.Size(333, 32);
+            this.dtpIn.Size = new System.Drawing.Size(333, 37);
             this.dtpIn.TabIndex = 4;
             // 
             // cbxNo
@@ -363,7 +359,7 @@
             ""});
             this.cbxNo.Location = new System.Drawing.Point(578, 211);
             this.cbxNo.Name = "cbxNo";
-            this.cbxNo.Size = new System.Drawing.Size(333, 31);
+            this.cbxNo.Size = new System.Drawing.Size(333, 36);
             this.cbxNo.TabIndex = 2;
             // 
             // cbxType
@@ -380,7 +376,7 @@
             "Business"});
             this.cbxType.Location = new System.Drawing.Point(126, 211);
             this.cbxType.Name = "cbxType";
-            this.cbxType.Size = new System.Drawing.Size(333, 31);
+            this.cbxType.Size = new System.Drawing.Size(333, 36);
             this.cbxType.TabIndex = 1;
             this.cbxType.SelectedIndexChanged += new System.EventHandler(this.cbxType_SelectedIndexChanged);
             // 
@@ -409,7 +405,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label6.Location = new System.Drawing.Point(575, 423);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 23);
+            this.label6.Size = new System.Drawing.Size(60, 28);
             this.label6.TabIndex = 0;
             this.label6.Text = "Out:";
             // 
@@ -421,7 +417,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label5.Location = new System.Drawing.Point(124, 420);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 23);
+            this.label5.Size = new System.Drawing.Size(40, 28);
             this.label5.TabIndex = 0;
             this.label5.Text = "In:";
             // 
@@ -433,7 +429,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label4.Location = new System.Drawing.Point(122, 287);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 23);
+            this.label4.Size = new System.Drawing.Size(191, 28);
             this.label4.TabIndex = 0;
             this.label4.Text = "Phone Number:";
             // 
@@ -445,7 +441,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label3.Location = new System.Drawing.Point(574, 153);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 23);
+            this.label3.Size = new System.Drawing.Size(140, 28);
             this.label3.TabIndex = 0;
             this.label3.Text = "Room No..:";
             // 
@@ -457,7 +453,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label2.Location = new System.Drawing.Point(124, 150);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 23);
+            this.label2.Size = new System.Drawing.Size(148, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Room Type:";
             // 
@@ -468,7 +464,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(18, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 23);
+            this.label1.Size = new System.Drawing.Size(224, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = " Add Reservation: ";
             // 
@@ -497,7 +493,7 @@
             this.tabPageSearchReservation.Location = new System.Drawing.Point(4, 4);
             this.tabPageSearchReservation.Name = "tabPageSearchReservation";
             this.tabPageSearchReservation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearchReservation.Size = new System.Drawing.Size(1023, 559);
+            this.tabPageSearchReservation.Size = new System.Drawing.Size(1038, 625);
             this.tabPageSearchReservation.TabIndex = 1;
             this.tabPageSearchReservation.Text = "SEARCH RESERVATION";
             // 
@@ -581,9 +577,31 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label15.Location = new System.Drawing.Point(570, 231);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(254, 28);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Reservation Number:";
+            
+            // 
+            // cbxReservationNumber
+            // 
+            this.cbxReservationNumber.FormattingEnabled = true;
+            this.cbxReservationNumber.Location = new System.Drawing.Point(575, 293);
+            this.cbxReservationNumber.Name = "cbxReservationNumber";
+            this.cbxReservationNumber.Size = new System.Drawing.Size(330, 31);
+            this.cbxReservationNumber.TabIndex = 8;
+            this.cbxReservationNumber.SelectedIndexChanged += new System.EventHandler(this.cbxReservationNumber_SelectedIndexChanged);
+            // 
             // UserControlReservation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.Controls.Add(this.tabControlReservation);
@@ -644,5 +662,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbxReservationNumber;
     }
 }
