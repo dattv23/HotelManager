@@ -20,8 +20,6 @@ namespace QuanLyKhachSan
         List<RoomBooking> bookings;
         List<Room> rooms;
         List<BillTransaction> billTransactions;
-        string reservationNumber = "";
-        double price = 0;
         public FormPayment()
         {
             InitializeComponent();
@@ -135,9 +133,13 @@ namespace QuanLyKhachSan
         {
             foreach (var item in billTransactions)
             {
-                if (item.reservationNumber == reservationNumber && item.status == 1)
+                var lReservation = item.reservationNumber.Split(' ');
+                foreach (var resevationNum in lReservation)
                 {
-                    return false;
+                    if (resevationNum == reservationNumber && item.status == 1)
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
@@ -149,10 +151,10 @@ namespace QuanLyKhachSan
             double amount = 0;
             foreach (var item in lBooking)
             {
-                if (item.startDate < DateTime.Now && checkReservationUnpaid(item.reservationNumber))
+                if (item.checkin < DateTime.Now && checkReservationUnpaid(item.reservationNumber))
                 {
                     amount = ((item.checkout - item.checkin).Days + 1) * getPriceBookingRoom(rooms, item.roomNumber);
-                    dgvPayment.Rows.Add(item.reservationNumber, item.phoneNumber, item.roomNumber, roomStyle(item.style), item.startDate, amount);
+                    dgvPayment.Rows.Add(item.reservationNumber, item.phoneNumber, item.roomNumber, roomStyle(item.style), item.startDate.ToString("dd/MM/yyyy"), amount);
                 }
             }
         }
@@ -209,21 +211,19 @@ namespace QuanLyKhachSan
                     MessageBox.Show("Phone number is not valid!", "Error");
                     return;
                 }
-                DateTime checkinDate = DateTime.MinValue; // Ngày nhận phòng
-                DateTime checkoutDate = DateTime.MinValue; // Ngày trả phòng
+                bool checkPhone = false;
+                List<RoomBooking> roomBookings = new List<RoomBooking>();
                 foreach (var item in bookings)
                 {
                     if (item.phoneNumber == txtPhoneNo.Text)
                     {
-                        price = (item.checkout - item.checkin).Days * getPriceBookingRoom(rooms, item.roomNumber);
-                        reservationNumber = item.reservationNumber;
-                        checkinDate = item.checkin;
-                        checkoutDate = item.checkout;
+                        roomBookings.Add(item);
+                        checkPhone = true;
                     }
                 }
-                if (checkinDate != DateTime.MinValue && checkoutDate != DateTime.MinValue)
+                if (checkPhone)
                 {
-                    FormPayment2 formPayment2 = new FormPayment2(txtPhoneNo.Text, reservationNumber, checkinDate, checkoutDate, price);
+                    FormPayment2 formPayment2 = new FormPayment2(txtPhoneNo.Text, roomBookings);
                     formPayment2.Show();
                     this.Close();
                 }

@@ -21,12 +21,40 @@ namespace QuanLyKhachSan
     public partial class FormPayment2 : Form
     {
         string phoneNumber;
-        string reservationNumber;
-        DateTime checkin;
-        DateTime checkout;
+        List<RoomBooking> bookings;
+        List<Room> rooms;
+        string reservationNumber = "";
+        Double price;
+
+        private async Task<string> getDataRoom()
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:3000/rooms");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        return jsonResponse;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Failed to retrieve room data: {response.StatusCode}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
 
         public async void loadData()
         {
+            rooms = JsonConvert.DeserializeObject<List<Room>>(await getDataRoom());
             List<User> userList = JsonConvert.DeserializeObject<List<User>>(await FindUser(phoneNumber));
             foreach (var item in userList)
             {
@@ -38,15 +66,22 @@ namespace QuanLyKhachSan
                 txtAddress.Text = item.address;
             }
         }
-        public FormPayment2(string phoneNumber, string reservationNumber, DateTime checkin, DateTime checkout, double amount)
+
+        public void loadDataReservations()
+        {
+            foreach (var item in bookings)
+            {
+                clbReservation.Items.Add(item.reservationNumber);
+            }
+        }
+
+        public FormPayment2(string phoneNumber, List<RoomBooking> roomBookings)
         {
             InitializeComponent();
             this.phoneNumber = phoneNumber;
-            this.reservationNumber = reservationNumber;
-            this.checkin = checkin;
-            this.checkout = checkout;
-            lblTotalAmount.Text = amount.ToString();
+            this.bookings = roomBookings;
             loadData();
+            loadDataReservations();
         }
 
         private async Task<string> FindUser(string phoneNumber)
@@ -89,14 +124,14 @@ namespace QuanLyKhachSan
         {
             try
             {
-                if (!rdbCash.Checked && !rdbTransfer.Checked && !rdbCreditCard.Checked) { MessageBox.Show("Please select payment method!"); return false; }
+                
                 var content = new StringContent(JsonConvert.SerializeObject(new BillTransaction()
                 {
                     creationDate = DateTime.Now,
-                    amount = double.Parse(lblTotalAmount.Text),
+                    amount = price,
                     status = 1, // 0.Unpaid, 1. Paid
                     method = getValueRDB(), // 0.CreditCard, 1.CheckTransaction, 2. CashTransaction
-                    reservationNumber = reservationNumber
+                    reservationNumber = reservationNumber, // "R001 R002"
                 }), Encoding.UTF8, "application/json");
 
                 using (HttpClient client = new HttpClient())
@@ -128,7 +163,7 @@ namespace QuanLyKhachSan
 
             Directory.CreateDirectory(directoryPath);
 
-            string pdfFileName = Path.Combine(directoryPath, $"Invoice{reservationNumber}.pdf");
+            string pdfFileName = Path.Combine(directoryPath, $"Invoice{string.Join("",reservationNumber.Split(' '))}.pdf");
             Document document = new Document();
 
             try
@@ -154,8 +189,8 @@ namespace QuanLyKhachSan
                 Font infoFont = FontFactory.GetFont(FontFactory.HELVETICA, 12f);
 
                 document.Add(new Paragraph("Reservation Number: " + reservationNumber, infoFont)); // Sử dụng infoFont
-                document.Add(new Paragraph("Check In: " + checkin.ToString("dd/MM/yyyy"), infoFont)); // Sử dụng infoFont
-                document.Add(new Paragraph("Check Out: " + checkout.ToString("dd/MM/yyyy"), infoFont)); // Sử dụng infoFont
+                //document.Add(new Paragraph("Check In: " + checkin.ToString("dd/MM/yyyy"), infoFont)); // Sử dụng infoFont
+                //document.Add(new Paragraph("Check Out: " + checkout.ToString("dd/MM/yyyy"), infoFont)); // Sử dụng infoFont
                 document.Add(new Paragraph("Name: " + txtFirstName.Text + " " + txtLastName.Text, infoFont)); // Sử dụng infoFont
                 document.Add(new Paragraph("Phone: " + txtphone.Text, infoFont)); // Sử dụng infoFont
                 document.Add(new Paragraph("Email: " + txtEmail.Text, infoFont)); // Sử dụng infoFont
@@ -177,11 +212,22 @@ namespace QuanLyKhachSan
         private void btnPrint_Click(object sender, EventArgs e)
         {
             if (!rdbCash.Checked && !rdbTransfer.Checked && !rdbCreditCard.Checked) { MessageBox.Show("Please select payment method!"); return; }
+            if (price == 0)
+            {
+                MessageBox.Show("Plase select reservation to payment!");
+                return;
+            }
             CreateInvoicePDF();
         }
 
         private async void btnPayment_Click(object sender, EventArgs e)
         {
+            if (!rdbCash.Checked && !rdbTransfer.Checked && !rdbCreditCard.Checked) { MessageBox.Show("Please select payment method!"); return; }
+            if (price == 0)
+            {
+                MessageBox.Show("Plase select reservation to payment!");
+                return;
+            }
             await SavePayment();
             this.Close();
         }
@@ -189,6 +235,41 @@ namespace QuanLyKhachSan
         private void picClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public double getPriceBookingRoom(List<Room> rooms, int roomnumber)
+        {
+            foreach (var item in rooms)
+            {
+                if (item.roomNumber == roomnumber) return item.bookingPrice;
+            }
+            return 0;
+        }
+
+        public double getAmoutReservation(string reservationNumber)
+        {
+            double amount = 0;
+            foreach (var item in bookings)
+            {
+                if (item.reservationNumber == reservationNumber)
+                {
+                    amount = ((item.checkout - item.checkin).Days + 1) * getPriceBookingRoom(rooms, item.roomNumber);
+                    break;
+                }
+            }
+            return amount;
+        }
+
+        private void clbReservation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            price = 0;
+            reservationNumber = "";
+            foreach (var item in clbReservation.CheckedItems)
+            {
+                price += getAmoutReservation(item.ToString());
+                reservationNumber += item.ToString() + " ";
+            }
+            lblTotalAmount.Text = price.ToString();
         }
     }
 }

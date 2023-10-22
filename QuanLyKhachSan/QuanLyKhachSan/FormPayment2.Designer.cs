@@ -30,6 +30,7 @@
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clbReservation = new System.Windows.Forms.CheckedListBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -46,6 +47,7 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblphone = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
@@ -60,6 +62,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(198)))), ((int)(((byte)(218)))));
+            this.groupBox1.Controls.Add(this.clbReservation);
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -76,6 +79,7 @@
             this.groupBox1.Controls.Add(this.txtFirstName);
             this.groupBox1.Controls.Add(this.lblphone);
             this.groupBox1.Controls.Add(this.lblAddress);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblLastName);
             this.groupBox1.Controls.Add(this.lblFirstName);
@@ -88,6 +92,15 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment Information";
+            // 
+            // clbReservation
+            // 
+            this.clbReservation.FormattingEnabled = true;
+            this.clbReservation.Location = new System.Drawing.Point(1086, 61);
+            this.clbReservation.Name = "clbReservation";
+            this.clbReservation.Size = new System.Drawing.Size(190, 119);
+            this.clbReservation.TabIndex = 30;
+            this.clbReservation.SelectedIndexChanged += new System.EventHandler(this.clbReservation_SelectedIndexChanged);
             // 
             // pictureBox3
             // 
@@ -243,6 +256,17 @@
             this.lblAddress.TabIndex = 18;
             this.lblAddress.Text = "Addresss:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(1081, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 27);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Reservation:";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -350,5 +374,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckedListBox clbReservation;
     }
 }

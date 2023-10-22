@@ -264,7 +264,7 @@ namespace QuanLyKhachSan
 
             var newUser = new
             {
-                name = firstName + lastName,
+                name = firstName + " " + lastName,
                 phone = phoneNumber,
                 email = email,
                 address = address,
@@ -341,7 +341,7 @@ namespace QuanLyKhachSan
 
             var newUser = new
             {
-                name = firstName + lastName,
+                name = firstName + " " + lastName,
                 phone = phoneNumber,
                 email = email,
                 address = address,
@@ -364,13 +364,33 @@ namespace QuanLyKhachSan
                 MessageBox.Show("Please fill phone number to delete!", "Error");
             } else
             {
-                await deleteUser(txtphone2.Text);
-                loadDGV();
+                DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Người dùng đã chọn Yes, thực hiện xóa
+                    await deleteUser(txtphone2.Text);
+                    loadDGV();
+                }
             }
+        }
+
+        public void resetInput2()
+        {
+            txtFirstName2.Text = "";
+            txtLastName2.Text = "";
+            txtUsername2.Text = "";
+            txtPassword2.Text = "";
+            txtGmail2.Text = "";
+            txtAddress2.Text = "";
         }
 
         private  void txtphone2_TextChanged(object sender, EventArgs e)
         {
+            if (txtphone2.Text == "")
+            {
+
+            }
             foreach (var item in users)
             {
                 if (item.phone == txtphone2.Text)
