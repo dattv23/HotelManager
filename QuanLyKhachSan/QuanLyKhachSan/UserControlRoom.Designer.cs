@@ -212,6 +212,7 @@
             // 
             // cmbType
             // 
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbType.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbType.FormattingEnabled = true;
@@ -279,7 +280,7 @@
             this.tabPageSearchRoom.Location = new System.Drawing.Point(4, 4);
             this.tabPageSearchRoom.Name = "tabPageSearchRoom";
             this.tabPageSearchRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearchRoom.Size = new System.Drawing.Size(1023, 559);
+            this.tabPageSearchRoom.Size = new System.Drawing.Size(1038, 625);
             this.tabPageSearchRoom.TabIndex = 1;
             this.tabPageSearchRoom.Text = "SEARCH ROOM";
             this.tabPageSearchRoom.Leave += new System.EventHandler(this.tabPageSearchRoom_Leave);
@@ -391,7 +392,7 @@
             this.tabPageUpDateAndDelete.Location = new System.Drawing.Point(4, 4);
             this.tabPageUpDateAndDelete.Name = "tabPageUpDateAndDelete";
             this.tabPageUpDateAndDelete.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUpDateAndDelete.Size = new System.Drawing.Size(1023, 559);
+            this.tabPageUpDateAndDelete.Size = new System.Drawing.Size(1038, 625);
             this.tabPageUpDateAndDelete.TabIndex = 2;
             this.tabPageUpDateAndDelete.Text = "UPDATE AND DELETE USER";
             this.tabPageUpDateAndDelete.Leave += new System.EventHandler(this.tabPageUpDateAndDelete_Leave);
@@ -537,6 +538,7 @@
             // 
             // cmbTypeUp
             // 
+            this.cmbTypeUp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTypeUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTypeUp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTypeUp.FormattingEnabled = true;

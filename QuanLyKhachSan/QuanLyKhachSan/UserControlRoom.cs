@@ -71,13 +71,13 @@ namespace QuanLyKhachSan
                     }
                     else
                     {
-                        MessageBox.Show($"Lỗi tải dữ liệu. Mã trạng thái: {response.StatusCode}");
+                        MessageBox.Show($"Error loading data. Status code: {response.StatusCode}");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
         public UserControlRoom()
@@ -121,12 +121,6 @@ namespace QuanLyKhachSan
                 string bookingPrice = txtBookingPrice.Text;
                 bool isSmoking = rdbYes.Checked;
 
-                if (!Validator.IsValidBookingPrice(bookingPrice))
-                {
-                    MessageBox.Show("Booking price is not valid.");
-                    return false;
-                }
-
                 var roomData = new
                 {
                     roomNumber,
@@ -157,7 +151,7 @@ namespace QuanLyKhachSan
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
                 return false;
             }
         }
@@ -217,14 +211,6 @@ namespace QuanLyKhachSan
             }
             return false;
         }
-        public class Validator
-        {
-            public static bool IsValidBookingPrice(string bookingPrice)
-            {
-                // Kiểm tra xem giá không rỗng và không chứa ký tự đặc biệt
-                return !string.IsNullOrEmpty(bookingPrice) && Regex.IsMatch(bookingPrice, @"^\d+(\.\d+)?$");
-            }
-        }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -259,12 +245,6 @@ namespace QuanLyKhachSan
                 int status = cmbStatusUp.SelectedIndex;
                 string bookingPrice = txtBookingPriceUp.Text;
                 bool isSmoking = rdbYes2.Checked;
-
-                if (!Validator.IsValidBookingPrice(bookingPrice))
-                {
-                    MessageBox.Show("Booking price is not valid.");
-                    return;
-                }
 
                 var newRoom = new
                 {
@@ -374,9 +354,7 @@ namespace QuanLyKhachSan
                     if (row.Cells[0].Value != null && Convert.ToInt32(row.Cells[0].Value) == roomNumber)
                     {
                         // Lấy thông tin phòng từ dgvRoom
-                        //int style = Convert.ToInt32(row.Cells[1].Value);
                         string bookingPrice = row.Cells[2].Value.ToString();
-                        //int status = Convert.ToInt32(row.Cells[3].Value);
                         bool isSmoking = Convert.ToBoolean(row.Cells[4].Value);
 
                         // Cập nhật các controls trong tabControlUpdateAndDelete
