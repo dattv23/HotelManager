@@ -17,7 +17,7 @@ namespace QuanLyKhachSan
 {
     public partial class FormPayment : Form
     {
-        List<RoomBooking> bookings;
+        //List<RoomBooking> bookings;
         List<Room> rooms;
         List<BillTransaction> billTransactions;
         public FormPayment()
@@ -145,8 +145,11 @@ namespace QuanLyKhachSan
             return true;
         }
 
-        private void loadDGV(List<RoomBooking> lBooking)
+        private async void loadDGV()
         {
+            rooms = JsonConvert.DeserializeObject<List<Room>>((await getDataRoom()));
+            billTransactions = JsonConvert.DeserializeObject<List<BillTransaction>>((await getDataBillTransactions()));
+            List<RoomBooking> lBooking = JsonConvert.DeserializeObject<List<RoomBooking>>((await getDataBooking()));
             dgvPayment.Rows.Clear();
             double amount = 0;
             foreach (var item in lBooking)
@@ -161,13 +164,13 @@ namespace QuanLyKhachSan
 
         private async void FormPayment_Load(object sender, EventArgs e)
         {
-            bookings = JsonConvert.DeserializeObject<List<RoomBooking>>((await getDataBooking()));
+           // bookings = JsonConvert.DeserializeObject<List<RoomBooking>>((await getDataBooking()));
+            loadDGV();
             rooms = JsonConvert.DeserializeObject<List<Room>>((await getDataRoom()));
             billTransactions = JsonConvert.DeserializeObject<List<BillTransaction>>((await getDataBillTransactions()));
-            loadDGV(bookings);
         }
 
-        private void btnShowDetails_Click(object sender, EventArgs e)
+        private async void btnShowDetails_Click(object sender, EventArgs e)
         {
             try
             {
@@ -177,15 +180,21 @@ namespace QuanLyKhachSan
                     return;
                 }
                 dgvPayment.Rows.Clear();
-                List<RoomBooking> roomBookings = new List<RoomBooking>();
-                foreach (var item in bookings)
+                // List<RoomBooking> roomBookings = new List<RoomBooking>();
+                rooms = JsonConvert.DeserializeObject<List<Room>>((await getDataRoom()));
+                billTransactions = JsonConvert.DeserializeObject<List<BillTransaction>>((await getDataBillTransactions()));
+                List<RoomBooking> lBooking = JsonConvert.DeserializeObject<List<RoomBooking>>((await getDataBooking()));
+                double amount = 0;
+                foreach (var item in lBooking)
                 {
                     if (item.phoneNumber == txtPhoneNo.Text)
                     {
-                        roomBookings.Add(item);
+                        // roomBookings.Add(item);
+                        amount = ((item.checkout - item.checkin).Days + 1) * getPriceBookingRoom(rooms, item.roomNumber);
+                        dgvPayment.Rows.Add(item.reservationNumber, item.phoneNumber, item.roomNumber, roomStyle(item.style), item.startDate.ToString("dd/MM/yyyy"), amount);
                     }
                 }
-                loadDGV(roomBookings);
+                
             }
             catch (Exception)
             {
@@ -198,11 +207,11 @@ namespace QuanLyKhachSan
         {
             if (txtPhoneNo.Text == "")
             {
-                loadDGV(bookings);
+                loadDGV();
             }
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private async void btnConfirm_Click(object sender, EventArgs e)
         {
             try
             {
@@ -213,7 +222,10 @@ namespace QuanLyKhachSan
                 }
                 bool checkPhone = false;
                 List<RoomBooking> roomBookings = new List<RoomBooking>();
-                foreach (var item in bookings)
+                rooms = JsonConvert.DeserializeObject<List<Room>>((await getDataRoom()));
+                billTransactions = JsonConvert.DeserializeObject<List<BillTransaction>>((await getDataBillTransactions()));
+                List<RoomBooking> lBooking = JsonConvert.DeserializeObject<List<RoomBooking>>((await getDataBooking()));
+                foreach (var item in lBooking)
                 {
                     if (item.phoneNumber == txtPhoneNo.Text)
                     {

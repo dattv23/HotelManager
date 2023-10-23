@@ -45,6 +45,7 @@
             this.btnClient = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panelMainForm = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -62,7 +63,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.panelMainForm = new System.Windows.Forms.Panel();
             this.userControlDashBoard11 = new QuanLyKhachSan.UserControlDashBoard1();
             this.userControlSetting1 = new QuanLyKhachSan.UserControlSetting();
             this.userControlRoom1 = new QuanLyKhachSan.UserControlRoom();
@@ -288,6 +288,13 @@
             this.panel3.Size = new System.Drawing.Size(369, 260);
             this.panel3.TabIndex = 0;
             // 
+            // panelMainForm
+            // 
+            this.panelMainForm.Location = new System.Drawing.Point(377, 160);
+            this.panelMainForm.Name = "panelMainForm";
+            this.panelMainForm.Size = new System.Drawing.Size(1093, 636);
+            this.panelMainForm.TabIndex = 0;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -341,7 +348,7 @@
             // 
             this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox10.Image = global::QuanLyKhachSan.Properties.Resources.turn_off;
-            this.pictureBox10.Location = new System.Drawing.Point(835, 92);
+            this.pictureBox10.Location = new System.Drawing.Point(863, 92);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(42, 40);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -354,7 +361,7 @@
             this.lbLogout.AutoSize = true;
             this.lbLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbLogout.LinkColor = System.Drawing.Color.Red;
-            this.lbLogout.Location = new System.Drawing.Point(884, 106);
+            this.lbLogout.Location = new System.Drawing.Point(912, 106);
             this.lbLogout.Name = "lbLogout";
             this.lbLogout.Size = new System.Drawing.Size(89, 25);
             this.lbLogout.TabIndex = 4;
@@ -457,13 +464,6 @@
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // panelMainForm
-            // 
-            this.panelMainForm.Location = new System.Drawing.Point(377, 160);
-            this.panelMainForm.Name = "panelMainForm";
-            this.panelMainForm.Size = new System.Drawing.Size(1093, 636);
-            this.panelMainForm.TabIndex = 0;
             // 
             // userControlDashBoard11
             // 

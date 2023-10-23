@@ -321,7 +321,7 @@ namespace QuanLyKhachSan
             {
                 chartStatisticsByUser.Series["Quanlity"].Points.AddXY(entry.Key, entry.Value);
             }
-            lblAmount.Text = count.ToString();
+            lblUser.Text = count.ToString();
             chartStatisticsByUser.ChartAreas[0].AxisX.Interval = 1;
             chartStatisticsByUser.Titles.Add("Total Room Booking Rental by Day");
             chartStatisticsByUser.ChartAreas[0].AxisX.Title = "Hour";
@@ -380,7 +380,7 @@ namespace QuanLyKhachSan
             {
                 chartStatisticsByUser.Series["Quanlity"].Points.AddXY(entry.Key, entry.Value);
             }
-            lblAmount.Text = count.ToString();
+            lblUser.Text = count.ToString();
             chartStatisticsByUser.ChartAreas[0].AxisX.Interval = 1;
             chartStatisticsByUser.Titles.Add("Total Room Booking Rental by Day");
             chartStatisticsByUser.ChartAreas[0].AxisX.Title = "Hour";
@@ -430,7 +430,7 @@ namespace QuanLyKhachSan
             {
                 chartStatisticsByUser.Series["Quanlity"].Points.AddXY(entry.Key, entry.Value);
             }
-            lblAmount.Text = count.ToString();
+            lblUser.Text = count.ToString();
             chartStatisticsByUser.ChartAreas[0].AxisX.Interval = 1;
             chartStatisticsByUser.ChartAreas[0].AxisY.Interval = 1;
             if (chartStatisticsByUser.Series["Quanlity"].Points.Count > 0)
@@ -455,6 +455,11 @@ namespace QuanLyKhachSan
                     point.IsValueShownAsLabel = false;
                 }
             }
+        }
+
+        private void tabPageStatisticsbyUser_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

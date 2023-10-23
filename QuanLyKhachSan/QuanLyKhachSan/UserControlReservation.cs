@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using GLib;
 using DevExpress.XtraRichEdit.Fields;
 using DateTime = System.DateTime;
+using DevExpress.CodeParser;
 
 namespace QuanLyKhachSan
 {
@@ -168,7 +169,8 @@ namespace QuanLyKhachSan
                     }
 
                     int nextIdentifier = maxIdentifier + 1;
-                    return "R" + nextIdentifier.ToString("D3"); // Format as R001, R002, etc.
+                    return "R" + nextIdentifier.ToString("D3"); 
+                    // Format as R001, R002, etc.
                 }
                 else
                 {
@@ -364,6 +366,11 @@ namespace QuanLyKhachSan
             if (dtpIn2.Value > dtpOut2.Value)
             {
                 MessageBox.Show("The value of the room date must be smaller than the room date");
+                return;
+            }
+            if (dtpIn2.Value < DateTime.Now)
+            {
+                MessageBox.Show("The value of the room date must be greater than current");
                 return;
             }
             try

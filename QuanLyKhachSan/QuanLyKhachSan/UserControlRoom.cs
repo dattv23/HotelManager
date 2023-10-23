@@ -35,7 +35,7 @@ namespace QuanLyKhachSan
                     return "Family";
                 case 3:
                     return "Business";
-            }
+            }   
             return null;
         }
 
