@@ -24,22 +24,6 @@ namespace QuanLyKhachSan
         {
             InitializeComponent();
         }
-
-        private void picMinimize_MouseHover(object sender, EventArgs e)
-        {
-       
-        }
-
-        private void picClose_MouseHover(object sender, EventArgs e)
-        {
-        
-        }
-
-        private void picClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void picMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -187,6 +171,16 @@ namespace QuanLyKhachSan
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
+        }
+
+        private void picClose_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void picMinimize_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

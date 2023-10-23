@@ -394,7 +394,7 @@
             this.tabPageUpDateAndDelete.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUpDateAndDelete.Size = new System.Drawing.Size(1038, 625);
             this.tabPageUpDateAndDelete.TabIndex = 2;
-            this.tabPageUpDateAndDelete.Text = "UPDATE AND DELETE USER";
+            this.tabPageUpDateAndDelete.Text = "UPDATE AND DELETE ROOM";
             this.tabPageUpDateAndDelete.Leave += new System.EventHandler(this.tabPageUpDateAndDelete_Leave);
             // 
             // lblBookingpriceUp

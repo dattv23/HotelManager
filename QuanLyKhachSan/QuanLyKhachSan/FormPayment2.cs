@@ -271,5 +271,10 @@ namespace QuanLyKhachSan
             }
             lblTotalAmount.Text = price.ToString();
         }
+
+        private void picClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

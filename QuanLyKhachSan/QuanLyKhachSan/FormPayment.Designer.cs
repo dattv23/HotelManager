@@ -41,8 +41,10 @@
             this.dvRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picClose = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -72,6 +74,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(198)))), ((int)(((byte)(218)))));
+            this.groupBox1.Controls.Add(this.picClose);
             this.groupBox1.Controls.Add(this.btnConfirm);
             this.groupBox1.Controls.Add(this.txtPhoneNo);
             this.groupBox1.Controls.Add(this.label8);
@@ -109,6 +112,9 @@
             // 
             this.dgvPayment.AllowUserToAddRows = false;
             this.dgvPayment.AllowUserToDeleteRows = false;
+            this.dgvPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPayment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPayment.BackgroundColor = System.Drawing.Color.White;
             this.dgvPayment.ColumnHeadersHeight = 29;
@@ -119,13 +125,13 @@
             this.dvRoomType,
             this.dgvStartDate,
             this.dgvAmount});
-            this.dgvPayment.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvPayment.Location = new System.Drawing.Point(0, 165);
+            this.dgvPayment.Location = new System.Drawing.Point(0, 180);
             this.dgvPayment.Name = "dgvPayment";
             this.dgvPayment.ReadOnly = true;
             this.dgvPayment.RowHeadersWidth = 51;
             this.dgvPayment.RowTemplate.Height = 24;
-            this.dgvPayment.Size = new System.Drawing.Size(1518, 425);
+            this.dgvPayment.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvPayment.Size = new System.Drawing.Size(1518, 410);
             this.dgvPayment.TabIndex = 9;
             // 
             // dgvReversationNumber
@@ -170,6 +176,19 @@
             this.dgvAmount.Name = "dgvAmount";
             this.dgvAmount.ReadOnly = true;
             // 
+            // picClose
+            // 
+            this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picClose.Image = global::QuanLyKhachSan.Properties.Resources.icons8_close_window_64;
+            this.picClose.Location = new System.Drawing.Point(1480, 0);
+            this.picClose.Name = "picClose";
+            this.picClose.Size = new System.Drawing.Size(38, 35);
+            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClose.TabIndex = 16;
+            this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
+            // 
             // FormPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -178,6 +197,7 @@
             this.Controls.Add(this.dgvPayment);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -187,6 +207,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dvRoomType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
+        private System.Windows.Forms.PictureBox picClose;
     }
 }

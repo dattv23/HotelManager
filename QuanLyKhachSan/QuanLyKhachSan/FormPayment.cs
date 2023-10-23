@@ -225,7 +225,6 @@ namespace QuanLyKhachSan
                 {
                     FormPayment2 formPayment2 = new FormPayment2(txtPhoneNo.Text, roomBookings);
                     formPayment2.Show();
-                    this.Close();
                 }
                 else
                 {
@@ -236,6 +235,11 @@ namespace QuanLyKhachSan
             {
                 throw;
             }
+        }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

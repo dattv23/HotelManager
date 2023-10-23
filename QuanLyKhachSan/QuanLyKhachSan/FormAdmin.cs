@@ -30,9 +30,9 @@ namespace QuanLyKhachSan
             if (DialogResult.Yes == result)
             {
                 timer1.Stop();
-                FormLogin formLogin = new FormLogin();
+                //FormLogin formLogin = new FormLogin();
                 this.Close();
-                formLogin.Show();
+                //formLogin.Show();
             }
         }
 
